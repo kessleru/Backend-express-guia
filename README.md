@@ -5,8 +5,8 @@
 **Um curso de backend em 20 módulos, em português.**<br>
 Teoria explicada, código que roda de verdade e um exercício por módulo.
 
-[![Módulos](https://img.shields.io/badge/módulos-14%20de%2020-fbbf24?style=for-the-badge)](./.projeto/GUIA-IMPLEMENTACAO.md#9-roadmap-de-execução)
-[![Testes](https://img.shields.io/badge/testes-113%20passando-4ade80?style=for-the-badge)](./docs/12-testes.md)
+[![Módulos](https://img.shields.io/badge/módulos-14%20de%2020-fbbf24?style=for-the-badge)](.projeto/estado.md#fases)
+[![Testes](https://img.shields.io/badge/testes-113%20passando-4ade80?style=for-the-badge)](./docs/11-15/12-testes.md)
 [![Node](https://img.shields.io/badge/node-24-3f8f43?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![TypeScript](https://img.shields.io/badge/typescript-7-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](./tsconfig.json)
 [![Último commit](https://img.shields.io/github/last-commit/kessleru/Backend-express?style=for-the-badge&color=38bdf8)](https://github.com/kessleru/Backend-express/commits/main)
@@ -78,36 +78,36 @@ mermaid já renderizam, sem instalar extensão nenhuma. No GitHub, idem.
 
 ## Currículo
 
-✅ pronto para estudar · ⬜ ainda não escrito
+✅ pronto para estudar · ⬜ só o esqueleto — a pasta e o arquivo existem, o conteúdo não
 
-| #   | Módulo                                                        | O que você aprende                               | Status |
-| --- | ------------------------------------------------------------- | ------------------------------------------------ | ------ |
-| 00  | [Glossário](./docs/00-glossario.md)                           | Toda palavra técnica do curso, em uma frase      | ✅     |
-|     | **Parte I — Fundamentos**                                     |                                                  |        |
-| 01  | [Fundamentos de HTTP](./docs/01-fundamentos-http.md)          | Request/response, métodos, status codes, headers | ✅     |
-| 02  | [Node, módulos e async](./docs/02-node-modulos-e-async.md)    | Event loop, ESM, npm, Promises                   | ✅     |
-|     | **Parte II — Express**                                        |                                                  |        |
-| 03  | [Express básico](./docs/03-express-basico.md)                 | Rotas, params, query, body, CRUD                 | ✅     |
-| 04  | [Roteamento](./docs/04-roteamento.md)                         | Router, versionamento, design de URLs            | ✅     |
-| 05  | [Middlewares](./docs/05-middlewares.md)                       | A fila de funções, `next()`, CORS                | ✅     |
-| 06  | [Tratamento de erros](./docs/06-tratamento-de-erros.md)       | Handler central, `AppError`                      | ✅     |
-| 07  | [Validação](./docs/07-validacao-zod.md)                       | Zod, schemas, nunca confiar no cliente           | ✅     |
-|     | **Parte III — Arquitetura e dados**                           |                                                  |        |
-| 08  | [Arquitetura em camadas](./docs/08-arquitetura-em-camadas.md) | Route → controller → service → repository        | ✅     |
-| 09  | [SQLite e SQL](./docs/09-sqlite-e-sql.md)                     | SQL na mão, modelagem, índices, transações       | ✅     |
-| 10  | [Prisma (ORM)](./docs/10-prisma-orm.md)                       | Schema, migrations, client tipado, N+1           | ✅     |
-| 11  | [Autenticação](./docs/11-autenticacao.md)                     | Hash de senha, JWT, cookies, RBAC                | ✅     |
-| 12  | [Testes](./docs/12-testes.md)                                 | Pirâmide, Vitest, Supertest, dublês, TDD         | ✅     |
-|     | **Parte IV — Produção**                                       |                                                  |        |
-| 13  | [Segurança](./docs/13-seguranca.md)                           | OWASP, rate limit, CORS de verdade, segredos     | ✅     |
-| 14  | [Observabilidade](./docs/14-observabilidade.md)               | Logs estruturados, request ID, health check      | ✅     |
-| 15  | Performance e cache                                           | Redis, paginação, load testing                   | ⬜     |
-| 16  | Deploy e CI/CD                                                | Docker, GitHub Actions                           | ⬜     |
-|     | **Parte V — Avançado**                                        |                                                  |        |
-| 17  | Filas e jobs                                                  | BullMQ, retry, idempotência                      | ⬜     |
-| 18  | Tempo real                                                    | WebSocket, SSE                                   | ⬜     |
-| 19  | Uploads                                                       | Multipart, validação, streaming                  | ⬜     |
-| 20  | Além do REST                                                  | OpenAPI/Swagger, GraphQL, tRPC                   | ⬜     |
+| #   | Módulo                                                              | O que você aprende                               | Status |
+| --- | ------------------------------------------------------------------- | ------------------------------------------------ | ------ |
+| 00  | [Glossário](./docs/00-glossario.md)                                 | Toda palavra técnica do curso, em uma frase      | ✅     |
+|     | **Parte I — Fundamentos**                                           |                                                  |        |
+| 01  | [Fundamentos de HTTP](./docs/01-05/01-fundamentos-http.md)          | Request/response, métodos, status codes, headers | ✅     |
+| 02  | [Node, módulos e async](./docs/01-05/02-node-modulos-e-async.md)    | Event loop, ESM, npm, Promises                   | ✅     |
+|     | **Parte II — Express**                                              |                                                  |        |
+| 03  | [Express básico](./docs/01-05/03-express-basico.md)                 | Rotas, params, query, body, CRUD                 | ✅     |
+| 04  | [Roteamento](./docs/01-05/04-roteamento.md)                         | Router, versionamento, design de URLs            | ✅     |
+| 05  | [Middlewares](./docs/01-05/05-middlewares.md)                       | A fila de funções, `next()`, CORS                | ✅     |
+| 06  | [Tratamento de erros](./docs/06-10/06-tratamento-de-erros.md)       | Handler central, `AppError`                      | ✅     |
+| 07  | [Validação](./docs/06-10/07-validacao-zod.md)                       | Zod, schemas, nunca confiar no cliente           | ✅     |
+|     | **Parte III — Arquitetura e dados**                                 |                                                  |        |
+| 08  | [Arquitetura em camadas](./docs/06-10/08-arquitetura-em-camadas.md) | Route → controller → service → repository        | ✅     |
+| 09  | [SQLite e SQL](./docs/06-10/09-sqlite-e-sql.md)                     | SQL na mão, modelagem, índices, transações       | ✅     |
+| 10  | [Prisma (ORM)](./docs/06-10/10-prisma-orm.md)                       | Schema, migrations, client tipado, N+1           | ✅     |
+| 11  | [Autenticação](./docs/11-15/11-autenticacao.md)                     | Hash de senha, JWT, cookies, RBAC                | ✅     |
+| 12  | [Testes](./docs/11-15/12-testes.md)                                 | Pirâmide, Vitest, Supertest, dublês, TDD         | ✅     |
+|     | **Parte IV — Produção**                                             |                                                  |        |
+| 13  | [Segurança](./docs/11-15/13-seguranca.md)                           | OWASP, rate limit, CORS de verdade, segredos     | ✅     |
+| 14  | [Observabilidade](./docs/11-15/14-observabilidade.md)               | Logs estruturados, request ID, health check      | ✅     |
+| 15  | [Performance e cache](./docs/11-15/15-performance-e-cache.md)       | Redis, paginação, load testing                   | ⬜     |
+| 16  | [Deploy e CI/CD](./docs/16-20/16-deploy-docker-ci.md)               | Docker, GitHub Actions                           | ⬜     |
+|     | **Parte V — Avançado**                                              |                                                  |        |
+| 17  | [Filas e jobs](./docs/16-20/17-jobs-e-filas.md)                     | BullMQ, retry, idempotência                      | ⬜     |
+| 18  | [Tempo real](./docs/16-20/18-websocket-e-sse.md)                    | WebSocket, SSE                                   | ⬜     |
+| 19  | [Uploads](./docs/16-20/19-arquivos-e-uploads.md)                    | Multipart, validação, streaming                  | ⬜     |
+| 20  | [Além do REST](./docs/16-20/20-alem-do-rest.md)                     | OpenAPI/Swagger, GraphQL, tRPC                   | ⬜     |
 
 Do módulo 03 em diante os exercícios param de ser soltos e viram **uma API de
 biblioteca** que cresce a cada módulo: CRUD em memória, depois camadas, depois
@@ -145,6 +145,6 @@ em `coverage/index.html`.
 
 <div align="center">
 
-Planejamento e estado do projeto: [`.projeto/GUIA-IMPLEMENTACAO.md`](./.projeto/GUIA-IMPLEMENTACAO.md)
+Planejamento e estado do projeto: [`.projeto/README.md`](.projeto/README.md)
 
 </div>

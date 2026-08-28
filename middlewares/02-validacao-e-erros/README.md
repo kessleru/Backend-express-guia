@@ -77,10 +77,10 @@ falham de propósito.
 
 ## Para estudar
 
-- [05 — Middlewares](../../docs/05-middlewares.md): o que é middleware, a ordem
+- [05 — Middlewares](../../docs/01-05/05-middlewares.md): o que é middleware, a ordem
   da pilha, a fábrica e os 4 argumentos do tratador de erro.
-- [06 — Tratamento de erros](../../docs/06-tratamento-de-erros.md): `AppError`,
+- [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md): `AppError`,
   `throw` em vez de `res.status`, o que mudou no Express 5 e a rede de segurança
   do processo.
-- [07 — Validação com Zod](../../docs/07-validacao-zod.md): schema, `safeParse` e
+- [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md): schema, `safeParse` e
   a diferença entre validação e regra de negócio.

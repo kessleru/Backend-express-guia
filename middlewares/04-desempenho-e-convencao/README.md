@@ -101,9 +101,9 @@ existe uma versão que sirva para o acervo e para o perfil do leitor ao mesmo
 tempo, nem faz sentido paginar um `POST`.
 
 O que é middleware, a ordem da pilha e a fábrica que recebe argumento estão em
-[`docs/05-middlewares.md`](../../docs/05-middlewares.md). Os status usados aqui
+[`docs/01-05/05-middlewares.md`](../../docs/01-05/05-middlewares.md). Os status usados aqui
 (`304`, `422`, `503`) estão em
-[`docs/01-fundamentos-http.md`](../../docs/01-fundamentos-http.md).
+[`docs/01-05/01-fundamentos-http.md`](../../docs/01-05/01-fundamentos-http.md).
 
 ## O que este grupo não cobre
 

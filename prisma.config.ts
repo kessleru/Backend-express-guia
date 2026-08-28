@@ -7,7 +7,7 @@
  * gerar o client exigia o `.env` presente.
  *
  * Este arquivo é lido pela CLI (`prisma migrate`, `prisma studio`). O client em
- * runtime recebe o adapter direto no construtor — ver `src/exemplos/10-prisma/db.ts`.
+ * runtime recebe o adapter direto no construtor — ver `src/exemplos/06-10/10-prisma/db.ts`.
  */
 import 'node:process';
 import { defineConfig } from 'prisma/config';

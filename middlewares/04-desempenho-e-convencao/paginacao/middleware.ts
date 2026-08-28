@@ -2,7 +2,7 @@
  * Paginação: lê `?pagina=` e `?limite=` uma vez só e entrega à rota os três
  * números que ela precisa — `pagina`, `limite` e `offset`.
  *
- * Conceito de middleware: docs/05-middlewares.md. Zod: docs/07-validacao-zod.md.
+ * Conceito de middleware: docs/01-05/05-middlewares.md. Zod: docs/06-10/07-validacao-zod.md.
  */
 import { z } from 'zod';
 import type { NextFunction, Request, Response } from 'express';
@@ -67,7 +67,7 @@ export function paginacao(req: Request, res: Response, next: NextFunction) {
 
   if (!resultado.success) {
     // 422 e não 400: o texto chegou legível, o servidor entendeu, e a regra é
-    // que recusou (docs/01-fundamentos-http.md). Este `res.status` direto é o
+    // que recusou (docs/01-05/01-fundamentos-http.md). Este `res.status` direto é o
     // ponto a trocar por `next(new AppError(422, ...))` se o projeto já tiver
     // um tratador central — o README diz o que muda.
     return res.status(422).json({

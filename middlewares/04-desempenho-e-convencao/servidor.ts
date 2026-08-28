@@ -93,7 +93,7 @@ app.get('/relatorio-sem-guarda', async (_req, res) => {
 
 app.get('/execucoes', (_req, res) => res.json(execucoes));
 
-// Tratador de erro: 4 argumentos (docs/05-middlewares.md). Se a resposta já
+// Tratador de erro: 4 argumentos (docs/01-05/05-middlewares.md). Se a resposta já
 // saiu, não há o que responder — delegar ao Express é o único caminho honesto,
 // e tentar `res.json` aqui só empilharia um segundo ERR_HTTP_HEADERS_SENT.
 app.use(

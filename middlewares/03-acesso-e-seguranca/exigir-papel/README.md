@@ -34,7 +34,7 @@ Funciona, e some. Três meses depois:
 - **A rota nova nasce aberta.** Copiada de outra rota autenticada, ela vem com o
   `autenticar` e sem o `if`. Fica protegida contra anônimos e liberada para todo
   usuário logado — que é a categoria de falha mais comum em APIs, o
-  [Broken Access Control](../../../docs/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática).
+  [Broken Access Control](../../../docs/11-15/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática).
 
 Autorizar é decisão **diferente** de autenticar, e separá-las em dois middlewares
 é o que impede a regra de sumir dentro da rota. Na linha
@@ -44,7 +44,7 @@ o quê é legível sem abrir o handler.
 ## Como funciona
 
 `exigirPapel` não é o middleware: é a **fábrica**
-([módulo 05](../../../docs/05-middlewares.md#middleware-com-argumento-fábrica))
+([módulo 05](../../../docs/01-05/05-middlewares.md#middleware-com-argumento-fábrica))
 que devolve um, já fechado sobre a lista de papéis permitidos. É por isso que a
 mesma função atende `exigirPapel('admin')` e `exigirPapel('admin', 'editor')` sem
 duas cópias.
@@ -85,7 +85,7 @@ flowchart LR
 
 O nome `401 Unauthorized` no padrão HTTP é infeliz — ele é sobre **autenticação**,
 e quem lê a palavra sem o contexto troca os dois. O
-[módulo 11](../../../docs/11-autenticacao.md#as-duas-palavras) tem a tabela
+[módulo 11](../../../docs/11-15/11-autenticacao.md#as-duas-palavras) tem a tabela
 completa.
 
 ## O código
@@ -237,15 +237,15 @@ autenticado. Numa API em que os nomes dos papéis são eles próprios sensíveis
 
 ## Onde é fácil errar
 
-| Sintoma                                                             | Causa                                                                                                                                                                |
-| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 401 em todo mundo, inclusive no admin com token perfeito            | `exigirPapel` registrado **antes** do `autenticar`. Ele lê `req.usuario` antes de existir e nega na primeira saída                                                   |
-| A rota parece protegida e todo usuário logado consegue apagar       | **O falso amigo:** só `autenticar` na rota. Ele prova que é **alguém**, não que é quem pode. "Autenticada" e "autorizada" não são a mesma coisa                      |
-| 403 para um token que tem o papel certo                             | O `papel` não chegou em `req.usuario` — o `autenticar` foi trocado por uma versão que não valida a carga. O 401 com a mensagem certa é o que evita isso              |
-| Papel novo criado no banco e ninguém consegue usá-lo                | A lista positiva não foi revisada. É o custo declarado da escolha, e o sintoma correto                                                                               |
-| `exigirPapel()` sem argumento e todas as rotas negam                | Não acontece: o `throw` da fábrica derruba o servidor na subida, com a linha no stack trace                                                                          |
-| Usuário A lê o recurso do usuário B, os dois com papel `leitor`     | Papel não é dono. Esta checagem precisa buscar o recurso e mora no service ([módulo 08](../../../docs/08-arquitetura-em-camadas.md))                                 |
-| Alguém rebaixado de admin continua apagando por mais alguns minutos | O papel vem congelado no token, e ele vale até expirar. É a contrapartida do JWT, descrita no [módulo 11](../../../docs/11-autenticacao.md#permissão-por-papel-rbac) |
+| Sintoma                                                             | Causa                                                                                                                                                                      |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 401 em todo mundo, inclusive no admin com token perfeito            | `exigirPapel` registrado **antes** do `autenticar`. Ele lê `req.usuario` antes de existir e nega na primeira saída                                                         |
+| A rota parece protegida e todo usuário logado consegue apagar       | **O falso amigo:** só `autenticar` na rota. Ele prova que é **alguém**, não que é quem pode. "Autenticada" e "autorizada" não são a mesma coisa                            |
+| 403 para um token que tem o papel certo                             | O `papel` não chegou em `req.usuario` — o `autenticar` foi trocado por uma versão que não valida a carga. O 401 com a mensagem certa é o que evita isso                    |
+| Papel novo criado no banco e ninguém consegue usá-lo                | A lista positiva não foi revisada. É o custo declarado da escolha, e o sintoma correto                                                                                     |
+| `exigirPapel()` sem argumento e todas as rotas negam                | Não acontece: o `throw` da fábrica derruba o servidor na subida, com a linha no stack trace                                                                                |
+| Usuário A lê o recurso do usuário B, os dois com papel `leitor`     | Papel não é dono. Esta checagem precisa buscar o recurso e mora no service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md))                                 |
+| Alguém rebaixado de admin continua apagando por mais alguns minutos | O papel vem congelado no token, e ele vale até expirar. É a contrapartida do JWT, descrita no [módulo 11](../../../docs/11-15/11-autenticacao.md#permissão-por-papel-rbac) |
 
 ## O que ele não faz
 
@@ -255,8 +255,8 @@ autenticado. Numa API em que os nomes dos papéis são eles próprios sensíveis
   não cabe aqui: essa regra precisa **buscar o recurso** para comparar o dono com
   quem pediu, e um middleware que roda antes do handler não tem o recurso em mãos.
   Ela mora no service
-  ([módulo 08](../../../docs/08-arquitetura-em-camadas.md)), e o
-  [módulo 13](../../../docs/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática)
+  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)), e o
+  [módulo 13](../../../docs/11-15/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática)
   mostra o caso completo, inclusive por que a resposta ali costuma ser 404 e não
   403 — um 403 confirmaria que o recurso existe.
 - **Não faz permissão granular.** `RBAC` amarra permissões a papéis; sistemas que
@@ -267,7 +267,7 @@ autenticado. Numa API em que os nomes dos papéis são eles próprios sensíveis
   só tem efeito quando o token expira.
 - **Não registra a negativa.** Uma tentativa de acesso negado é exatamente o
   evento que se quer ver num painel — e transformá-la em log estruturado e alerta
-  é assunto do [módulo 14](../../../docs/14-observabilidade.md).
+  é assunto do [módulo 14](../../../docs/11-15/14-observabilidade.md).
 
 ## Testado assim
 

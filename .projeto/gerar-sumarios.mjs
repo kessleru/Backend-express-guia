@@ -27,7 +27,14 @@ const ancora = (t) =>
 /** Tira marcação inline do título para o texto do link ficar limpo. */
 const limpo = (t) => t.replace(/`/g, '').replace(/\*\*/g, '').replace(/_/g, '');
 
-for (const arquivo of readdirSync(DOCS).filter((f) => /^\d\d-.*\.md$/.test(f))) {
+// `recursive` porque os módulos moram em grupos de cinco (`docs/06-10/...`), e
+// o glossário fica solto na raiz de `docs/`. O filtro é pelo NOME do arquivo,
+// não pelo caminho: a pasta `06-10` também começa com dois dígitos.
+const docs = readdirSync(DOCS, { recursive: true })
+  .map((f) => String(f).replaceAll('\\', '/'))
+  .filter((f) => /^\d\d-.*\.md$/.test(f.split('/').pop()));
+
+for (const arquivo of docs) {
   const caminho = join(DOCS, arquivo);
   let texto = readFileSync(caminho, 'utf8');
 

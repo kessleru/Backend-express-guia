@@ -46,7 +46,7 @@ pronto precisa de um caso extra só para este.
 Ele é um middleware comum de três argumentos — nada de especial na assinatura.
 O que o torna o 404 é **onde ele é registrado**: depois de todas as rotas.
 
-A pilha do Express é percorrida em ordem ([módulo 05](../../../docs/05-middlewares.md#a-ordem-é-a-ordem-do-arquivo)),
+A pilha do Express é percorrida em ordem ([módulo 05](../../../docs/01-05/05-middlewares.md#a-ordem-é-a-ordem-do-arquivo)),
 e uma rota só entra na conversa se o método e o caminho baterem. Quando nenhuma
 bate, a requisição continua descendo — e o primeiro middleware sem restrição de
 caminho que encontrar depois delas é este. Ou seja: **chegar aqui já é a prova
@@ -170,7 +170,7 @@ rotaNaoEncontrada (file:///C:/Users/otavi/.../nao-encontrado/middleware.ts:32:8)
 qualquer asserção sobre `resposta.status` passa. O que muda é o `Content-Type` e
 o caminho absoluto do seu projeto dentro do corpo — e um teste que confira o
 formato do erro, não só o status, é a única coisa que pega isso
-([módulo 12](../../../docs/12-testes.md)).
+([módulo 12](../../../docs/11-15/12-testes.md)).
 
 ## As decisões e o porquê
 

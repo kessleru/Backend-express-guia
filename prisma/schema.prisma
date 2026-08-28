@@ -12,7 +12,7 @@ generator client {
   // e ele EXIGE um `output`. O antigo `prisma-client-js`, que escrevia dentro de
   // node_modules, está a caminho da aposentadoria.
   provider = "prisma-client"
-  output   = "../src/exemplos/10-prisma/gerado"
+  output   = "../src/exemplos/06-10/10-prisma/gerado"
 
   // `runtime` diz para qual ambiente gerar. `nodejs` é o nosso caso.
   runtime = "nodejs"

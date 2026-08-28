@@ -28,7 +28,7 @@ E existe a razão de este middleware existir em vez de um `res.setHeader` na rot
 são doze cabeçalhos, cada um com um valor cheio de detalhes, e nenhum deles
 pertence a uma rota específica. Escritos à mão, eles divergem entre rotas e somem
 na rota nova. É o caso do
-[módulo 05](../../../docs/05-middlewares.md#para-que-serve-a-coisa-que-precisa-acontecer-em-toda-rota),
+[módulo 05](../../../docs/01-05/05-middlewares.md#para-que-serve-a-coisa-que-precisa-acontecer-em-toda-rota),
 com um agravante: aqui a ausência não dá erro nenhum. A resposta sai igual, com
 status 200, e ninguém percebe.
 
@@ -58,7 +58,7 @@ X-XSS-Protection: 0
 Removido: `X-Powered-By: Express`.
 
 O que importa aqui não é a lista — o
-[módulo 13](../../../docs/13-seguranca.md#helmet-os-headers-e-por-que-cada-um-existe)
+[módulo 13](../../../docs/11-15/13-seguranca.md#helmet-os-headers-e-por-que-cada-um-existe)
 já tem a tabela de o que cada um evita. É a pergunta que quase nenhum tutorial
 faz: **quais destes fazem alguma coisa numa API que só devolve JSON?**
 
@@ -130,7 +130,7 @@ nenhum. A política inteira governa um comportamento que não vai acontecer. Ela
 requisição em troca de zero, e tem um custo pior que os bytes: dá a sensação de
 que a API está protegida contra XSS. Quem defende contra XSS numa API é a
 validação da entrada e o escape de quem renderiza
-([módulo 13](../../../docs/13-seguranca.md#xss-por-que-ainda-importa-numa-api-que-só-devolve-json)).
+([módulo 13](../../../docs/11-15/13-seguranca.md#xss-por-que-ainda-importa-numa-api-que-só-devolve-json)).
 
 A decisão aqui não é `contentSecurityPolicy: false`, que perderia o único caso em
 que ela ainda serve, nem manter a padrão. É trocá-la pela política de duas linhas
@@ -204,7 +204,7 @@ Doze cabeçalhos, cada um com sintaxe própria e valores que mudam com o consens
 está refletida em quem acompanha. À mão, a lista congela no dia em que foi escrita.
 
 Custo da dependência: uma a mais no `package.json`, com o que isso implica de
-superfície ([módulo 13](../../../docs/13-seguranca.md#dependências-vulneráveis)),
+superfície ([módulo 13](../../../docs/11-15/13-seguranca.md#dependências-vulneráveis)),
 e um comportamento padrão que muda entre versões maiores — a CSP padrão do helmet
 já mudou, e um `npm update` pode alterar cabeçalho sem ninguém pedir. Por isso a
 CSP aqui está escrita explicitamente em vez de herdada.
@@ -244,24 +244,24 @@ ninguém precisa adivinhar se a CSP daqui foi pensada ou é a que veio na caixa.
 
 ## Onde é fácil errar
 
-| Sintoma                                                             | Causa                                                                                                                                                                             |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| O time "corrige" `X-XSS-Protection: 0` para `1; mode=block`         | **O falso amigo:** o zero é proposital. O filtro antigo do navegador tinha bugs que criavam brecha onde não havia, e ligá-lo de volta piora a segurança                           |
-| CSP configurada com capricho e o XSS acontece mesmo assim           | CSP é política de página; numa API JSON ela governa um comportamento que não existe. Quem defende contra XSS aqui é validação de entrada e escape na renderização                 |
-| A resposta 429 ou 500 sai sem nenhum cabeçalho de segurança         | O helmet registrado depois do limitador ou do tratador de erros. Ele tem que ser o primeiro                                                                                       |
-| Imagem servida pela API para de carregar em outro domínio           | `Cross-Origin-Resource-Policy: same-origin`, padrão do helmet. Conserto: `{ policy: 'cross-origin' }` naquela rota                                                                |
-| Requisição do front bloqueada e o erro fala em CORS                 | Helmet não faz CORS e não substitui o pacote `cors`. São problemas diferentes ([módulo 13](../../../docs/13-seguranca.md#cors-o-que-ele-faz-e-o-que-ele-definitivamente-não-faz)) |
-| HSTS não parece ter efeito em desenvolvimento                       | Correto: o navegador só aceita HSTS sobre HTTPS. Em `http://localhost` o cabeçalho é enviado e ignorado                                                                           |
-| A API precisou voltar a HTTP e os navegadores se recusam a conectar | HSTS com `max-age` de um ano, já visto pelo cliente. Só `max-age=0` — e esperar cada cliente passar de novo — desfaz                                                              |
-| Um subdomínio interno em HTTP parou de abrir                        | `includeSubDomains`. É o comportamento pedido, e é o motivo de a opção merecer decisão explícita                                                                                  |
-| `npm update` e um cabeçalho mudou de valor sozinho                  | Padrões do helmet mudam entre versões maiores. O que precisa ser estável vai escrito nas opções, como a CSP daqui                                                                 |
+| Sintoma                                                             | Causa                                                                                                                                                                                   |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| O time "corrige" `X-XSS-Protection: 0` para `1; mode=block`         | **O falso amigo:** o zero é proposital. O filtro antigo do navegador tinha bugs que criavam brecha onde não havia, e ligá-lo de volta piora a segurança                                 |
+| CSP configurada com capricho e o XSS acontece mesmo assim           | CSP é política de página; numa API JSON ela governa um comportamento que não existe. Quem defende contra XSS aqui é validação de entrada e escape na renderização                       |
+| A resposta 429 ou 500 sai sem nenhum cabeçalho de segurança         | O helmet registrado depois do limitador ou do tratador de erros. Ele tem que ser o primeiro                                                                                             |
+| Imagem servida pela API para de carregar em outro domínio           | `Cross-Origin-Resource-Policy: same-origin`, padrão do helmet. Conserto: `{ policy: 'cross-origin' }` naquela rota                                                                      |
+| Requisição do front bloqueada e o erro fala em CORS                 | Helmet não faz CORS e não substitui o pacote `cors`. São problemas diferentes ([módulo 13](../../../docs/11-15/13-seguranca.md#cors-o-que-ele-faz-e-o-que-ele-definitivamente-não-faz)) |
+| HSTS não parece ter efeito em desenvolvimento                       | Correto: o navegador só aceita HSTS sobre HTTPS. Em `http://localhost` o cabeçalho é enviado e ignorado                                                                                 |
+| A API precisou voltar a HTTP e os navegadores se recusam a conectar | HSTS com `max-age` de um ano, já visto pelo cliente. Só `max-age=0` — e esperar cada cliente passar de novo — desfaz                                                                    |
+| Um subdomínio interno em HTTP parou de abrir                        | `includeSubDomains`. É o comportamento pedido, e é o motivo de a opção merecer decisão explícita                                                                                        |
+| `npm update` e um cabeçalho mudou de valor sozinho                  | Padrões do helmet mudam entre versões maiores. O que precisa ser estável vai escrito nas opções, como a CSP daqui                                                                       |
 
 ## O que ele não faz
 
 - **Não protege contra XSS.** Ele manda instruções para o navegador; a defesa é
   validar a entrada e escapar na renderização. Numa API que só devolve JSON, o
   papel dela é **não estocar a munição**
-  ([módulo 13](../../../docs/13-seguranca.md#xss-por-que-ainda-importa-numa-api-que-só-devolve-json)).
+  ([módulo 13](../../../docs/11-15/13-seguranca.md#xss-por-que-ainda-importa-numa-api-que-só-devolve-json)).
 - **Não faz CORS.** Nenhum destes cabeçalhos libera ou bloqueia origem para um
   `fetch`; isso é o pacote `cors`, e os dois costumam ser confundidos porque os
   nomes se parecem.

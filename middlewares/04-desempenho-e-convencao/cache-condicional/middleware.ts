@@ -2,8 +2,8 @@
  * Cache condicional: manda uma etiqueta (`ETag`), lê o `If-None-Match` que o
  * cliente devolve e responde `304 Not Modified` sem corpo quando nada mudou.
  *
- * Conceito de middleware: docs/05-middlewares.md. Status e cabeçalhos:
- * docs/01-fundamentos-http.md. Cache é o módulo 15, que ainda não existe —
+ * Conceito de middleware: docs/01-05/05-middlewares.md. Status e cabeçalhos:
+ * docs/01-05/01-fundamentos-http.md. Cache é o módulo 15, que ainda não existe —
  * esta pasta é a versão avulsa dele.
  */
 import { createHash } from 'node:crypto';

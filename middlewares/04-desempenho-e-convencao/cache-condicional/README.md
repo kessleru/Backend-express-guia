@@ -1,6 +1,6 @@
 # Middleware — cache-condicional
 
-📦 módulo 15 (cache, ainda não escrito) · 🧩 grupo 04
+📦 [módulo 15](../../../docs/11-15/15-performance-e-cache.md) (cache, ainda esqueleto) · 🧩 grupo 04
 
 Manda uma etiqueta junto da resposta e, quando o cliente devolve a mesma
 etiqueta, responde `304 Not Modified` sem corpo — e sem rodar o handler.

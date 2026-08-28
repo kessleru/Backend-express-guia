@@ -4,7 +4,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     // `rootDir` é a raiz do repo, não `./exercicios`: a solução do módulo 10
-    // importa o Prisma Client gerado em `src/exemplos/10-prisma/gerado/`, e um
+    // importa o Prisma Client gerado em `src/exemplos/06-10/10-prisma/gerado/`, e um
     // `rootDir` mais estreito recusaria arquivo fora dele (TS6059). Como aqui é
     // só `--noEmit`, `rootDir` não decide layout de saída nenhum.
     "rootDir": ".",

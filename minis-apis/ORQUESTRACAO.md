@@ -156,7 +156,7 @@ cabe num arquivo, e `repositorios/` com um `repositorio.ts` dentro custa um
 clique sem separar nada. E é por isso que a `06-compras` tem `rotas/`: três
 grupos de rota em três arquivos são coisas diferentes de verdade.
 
-Onde houver divisão, o layout de referência é o de `src/exemplos/08-camadas/`
+Onde houver divisão, o layout de referência é o de `src/exemplos/06-10/08-camadas/`
 (`rotas/`, `servicos/`, `repositorios/`, `dominio/`) — uma mini que aplica o
 módulo 08 usando uma organização que o exemplo do próprio módulo não usa passa a
 mensagem trocada.
@@ -513,7 +513,7 @@ Depois que as três voltarem:
    em que ordem ler as três — a 1 cria a dor que a 2 resolve, a 2 cria a que a
    3 resolve — e a tabela com domínio, faixa de módulos, porta e a frase de "o
    que esta aqui ensina".
-3. Registrar a leva em `.projeto/ULTIMO.md`.
+3. Registrar a leva em `.projeto/estado.md` e, se houver o que contar, em `.projeto/historico/AAAA-MM-DD.md`.
 
 ---
 

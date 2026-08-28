@@ -11,7 +11,7 @@ app.get('/', (_req, res) => {
     mensagem: 'Servidor no ar 🚀',
     proximosPassos: [
       'Leia o README.md para o índice do curso',
-      'Comece por docs/01-fundamentos-http.md',
+      'Comece por docs/01-05/01-fundamentos-http.md',
       'Escreva seu próprio código em src/playground/',
     ],
   });

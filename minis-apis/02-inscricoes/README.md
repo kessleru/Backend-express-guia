@@ -508,8 +508,8 @@ curl.exe -s -X POST http://localhost:6002/eventos/1/inscricoes \
 
 ## Para estudar
 
-- [03 — Express básico](../../docs/03-express-basico.md): rota, `req`, `res`, status
-- [04 — Roteamento](../../docs/04-roteamento.md): `Router`, parâmetro de rota, ordem
-- [05 — Middlewares](../../docs/05-middlewares.md): a cadeia, `cors`, `morgan`, `express.json()`
-- [06 — Tratamento de erros](../../docs/06-tratamento-de-erros.md): `AppError` e o tratador central
-- [07 — Validação com Zod](../../docs/07-validacao-zod.md): schema, `coerce`, `.strict()`, validação × regra de negócio
+- [03 — Express básico](../../docs/01-05/03-express-basico.md): rota, `req`, `res`, status
+- [04 — Roteamento](../../docs/01-05/04-roteamento.md): `Router`, parâmetro de rota, ordem
+- [05 — Middlewares](../../docs/01-05/05-middlewares.md): a cadeia, `cors`, `morgan`, `express.json()`
+- [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md): `AppError` e o tratador central
+- [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md): schema, `coerce`, `.strict()`, validação × regra de negócio

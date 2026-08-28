@@ -3,9 +3,21 @@
 Repositório de **estudo de backend**: Node.js + Express + TypeScript, do básico
 ao avançado. O objetivo é ensinar, não entregar produto.
 
-**Antes de qualquer coisa, leia `.projeto/GUIA-IMPLEMENTACAO.md`.** Ele tem o currículo
-completo (20 módulos), o catálogo de ferramentas e a tabela de progresso
-(seção 9) que diz onde o trabalho parou.
+**Antes de qualquer coisa, leia `.projeto/estado.md`.** Ele diz onde o trabalho
+parou e o que fazer em seguida. É o único arquivo de planejamento que toda
+sessão precisa abrir.
+
+Depois, só o que a tarefa pedir — o índice com o mapa completo está em
+`.projeto/README.md`:
+
+| Vou…                                             | Leia                            |
+| ------------------------------------------------ | ------------------------------- |
+| escrever ou revisar um módulo                    | `.projeto/padrao-de-escrita.md` |
+| planejar o próximo módulo                        | `.projeto/curriculo.md`         |
+| instalar ou justificar uma dependência           | `.projeto/ferramentas.md`       |
+| escrever código com Express, Zod, Prisma ou Pino | `.projeto/achados.md`           |
+| escolher porta, criar tsconfig, subir servidor   | `.projeto/convencoes.md`        |
+| mexer em tsconfig, banco, ESM, estrutura         | `.projeto/decisoes.md`          |
 
 ## Regras invioláveis
 
@@ -15,12 +27,12 @@ completo (20 módulos), o catálogo de ferramentas e a tabela de progresso
 3. **Todo exemplo tem que rodar.** Antes de dar um módulo como pronto: execute o
    código e rode `npm run typecheck`.
 
-## Estilo de escrita (detalhes na seção 7 do guia)
+## Estilo de escrita (detalhes em `.projeto/padrao-de-escrita.md`)
 
 Completo em cobertura **e em explicação**. Corte redundância, nunca profundidade
 nem clareza — módulo raso é defeito, módulo longo não é.
 
-**Todo conceito passa pelas cinco camadas, nesta ordem** (seção 7 do guia):
+**Todo conceito passa pelas cinco camadas, nesta ordem** (detalhe no `padrao-de-escrita.md`):
 problema → **mecânica** → princípio → trade-off → consequência.
 
 A ordem é obrigatória. O princípio vem **depois** de o leitor ver a coisa
@@ -50,7 +62,7 @@ sentido, é aforismo e está errada. "A senha nunca é armazenada" é princípio
 - Conceito já explicado vira link para o módulo, não é reexplicado.
 
 Todo módulo segue o template de `docs/` e tem um exercício correspondente em
-`exercicios/NN-*/` (formato na seção 7 do guia).
+`exercicios/NN-*/` (formato no `padrao-de-escrita.md`).
 
 ## Markdown: só o padrão
 
@@ -99,8 +111,8 @@ Regras:
 - **Nada de `ts-node`, `nodemon` ou `dotenv`** — Node 24 resolve os três
   nativamente (`node arquivo.ts`, `--watch`, `--env-file`).
 - **Banco: SQLite.** `node:sqlite` (SQL na mão) no módulo 09, Prisma no 10.
-- **Dependência nova só entra no módulo que a justifica** (catálogo na seção 6
-  do guia), e a doc precisa dizer que problema ela resolve.
+- **Dependência nova só entra no módulo que a justifica** (catálogo em
+  `.projeto/ferramentas.md`), e a doc precisa dizer que problema ela resolve.
 
 ## Estrutura
 

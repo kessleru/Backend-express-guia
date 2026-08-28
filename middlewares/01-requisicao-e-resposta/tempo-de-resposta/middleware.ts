@@ -2,7 +2,7 @@
  * tempo-de-resposta — carimba `X-Tempo-ms` na resposta com o tempo que o
  * servidor levou para produzi-la.
  *
- * Conceito de middleware, ordem e `res.on('finish')`: docs/05-middlewares.md.
+ * Conceito de middleware, ordem e `res.on('finish')`: docs/01-05/05-middlewares.md.
  * Copiável: não importa nada de outra pasta do catálogo.
  */
 import type { NextFunction, Request, Response } from 'express';

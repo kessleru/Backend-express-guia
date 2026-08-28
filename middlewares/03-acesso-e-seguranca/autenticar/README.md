@@ -39,7 +39,7 @@ escrito:
   existir.
 
 Autenticação é o caso de manual do que o
-[módulo 05](../../../docs/05-middlewares.md#para-que-serve-a-coisa-que-precisa-acontecer-em-toda-rota)
+[módulo 05](../../../docs/01-05/05-middlewares.md#para-que-serve-a-coisa-que-precisa-acontecer-em-toda-rota)
 descreve: a coisa que precisa acontecer antes da rota, decidida num lugar só.
 
 ## Como funciona
@@ -160,7 +160,7 @@ passa na revisão de código: tudo continua funcionando.
 
 O que muda é só o que ninguém testa. A assinatura de um JWT é o que prova que a
 carga foi emitida por quem tem o segredo
-([módulo 11](../../../docs/11-autenticacao.md#anatomia-de-um-jwt)). Sem conferi-la,
+([módulo 11](../../../docs/11-15/11-autenticacao.md#anatomia-de-um-jwt)). Sem conferi-la,
 qualquer pessoa monta `{"sub":"eu","papel":"admin"}`, codifica em base64, põe
 qualquer lixo no lugar da assinatura, manda, e é admin — sem senha, sem conta,
 sem nunca ter tido o segredo. É a falha mais grave que se comete com JWT, e ela
@@ -245,9 +245,9 @@ inclusive o admin com token perfeito.
 
 ### `req.usuario` e não `res.locals.usuario`
 
-O [módulo 05](../../../docs/05-middlewares.md#passando-dados-entre-middlewares)
+O [módulo 05](../../../docs/01-05/05-middlewares.md#passando-dados-entre-middlewares)
 mostra `res.locals` como o lugar de passar dado entre middlewares, e o
-[módulo 11](../../../docs/11-autenticacao.md#permissão-por-papel-rbac) usa
+[módulo 11](../../../docs/11-15/11-autenticacao.md#permissão-por-papel-rbac) usa
 `res.locals.usuario`. Aqui é `req.usuario`, e a diferença é de tipagem.
 
 `res.locals` é tipado como `Record<string, any>`: escrever ali não exige
@@ -302,7 +302,7 @@ segundos. Falhar na subida é o barato; falhar em silêncio é o caro.
 ### 15 minutos de validade
 
 `expiresIn: '15m'` é o número do
-[módulo 11](../../../docs/11-autenticacao.md#access--refresh), e ele só é
+[módulo 11](../../../docs/11-15/11-autenticacao.md#access--refresh), e ele só é
 aceitável junto de um refresh token que renove em silêncio. Sem refresh, isto
 significa login de novo no meio da tarde.
 
@@ -340,7 +340,7 @@ latência por revogação imediata.
 
 - **Não faz login.** Ele lê um token que já existe; conferir senha com Argon2 e
   emitir o primeiro token é assunto do
-  [módulo 11](../../../docs/11-autenticacao.md). A rota `POST /sessoes` da demo
+  [módulo 11](../../../docs/11-15/11-autenticacao.md). A rota `POST /sessoes` da demo
   não é login: não há senha, e qualquer um pede o papel que quiser.
 - **Não faz logout, e não tem como fazer.** Um JWT válido vale até expirar. Não
   existe lista de tokens vivos para riscar um nome — é o preço de não consultar
@@ -352,7 +352,7 @@ latência por revogação imediata.
   `GET /emprestimos/42` mesmo que o empréstimo 42 seja de outra pessoa. Essa
   checagem precisa buscar o recurso primeiro e por isso mora no service, não num
   middleware — é o
-  [Broken Access Control do módulo 13](../../../docs/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática).
+  [Broken Access Control do módulo 13](../../../docs/11-15/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática).
 - **Não limita tentativas.** Uma rota de login sem limite cai por força bruta
   mesmo com o token perfeito: é o [`limitar`](../limitar/README.md).
 - **Não protege o token em trânsito.** Bearer é um token **ao portador**: quem o

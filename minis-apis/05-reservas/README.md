@@ -683,9 +683,9 @@ curl.exe -s -X POST http://localhost:6005/salas/1/reservas \
 
 ## Para estudar
 
-- [03 — Express básico](../../docs/03-express-basico.md): rota, `req`, `res`, status
-- [04 — Roteamento](../../docs/04-roteamento.md): `Router`, parâmetro de rota, `PATCH`
-- [05 — Middlewares](../../docs/05-middlewares.md): a cadeia, `cors`, `morgan`, `express.json()`
-- [06 — Tratamento de erros](../../docs/06-tratamento-de-erros.md): `AppError` e o tratador central
-- [07 — Validação com Zod](../../docs/07-validacao-zod.md): schema, `coerce`, `.strict()`, regra sobre o objeto
+- [03 — Express básico](../../docs/01-05/03-express-basico.md): rota, `req`, `res`, status
+- [04 — Roteamento](../../docs/01-05/04-roteamento.md): `Router`, parâmetro de rota, `PATCH`
+- [05 — Middlewares](../../docs/01-05/05-middlewares.md): a cadeia, `cors`, `morgan`, `express.json()`
+- [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md): `AppError` e o tratador central
+- [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md): schema, `coerce`, `.strict()`, regra sobre o objeto
 - [Mini API 02 — Inscrições](../02-inscricoes/README.md): o mesmo `validar(schema)`, e a origem da distinção `422` × `409`
