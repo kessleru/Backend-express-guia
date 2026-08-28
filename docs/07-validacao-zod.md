@@ -390,19 +390,21 @@ curl -X POST $B/periodos -H 'Content-Type: application/json' \
 
 ## Erros comuns
 
-| Erro                                | O que acontece                        | Correção                    |
-| ----------------------------------- | ------------------------------------- | --------------------------- |
-| Confiar em `req.body`               | É `any`; qualquer coisa passa         | Sempre um schema            |
-| Sem `.strict()`                     | Campo com typo é descartado calado    | `.strict()`                 |
-| `criarSchema.partial()` no PATCH    | Defaults sobrescrevem o salvo         | Campos sem default          |
-| `req.query = data` no Express 5     | `TypeError`: só tem getter            | `res.locals`                |
-| `safeParse(req.body)` sem `?? {}`   | "expected object, received undefined" | `req.body ?? {}`            |
-| `z.coerce.boolean()` em query       | `"false"` vira `true`                 | `enum + transform`          |
-| `z.number()` em query               | Sempre falha: chega string            | `z.coerce.number()`         |
-| Só o primeiro erro na resposta      | Usuário corrige um por vez            | Devolva `issues` inteiro    |
-| Erro sem nome de campo              | Front não sabe onde marcar            | `path` no `.refine()`       |
-| `.refine()` batendo no banco        | Schema deixa de ser testável          | Regra de negócio no service |
-| Validar só na entrada, tipar na mão | Duas verdades divergem                | `z.infer`                   |
+| Erro                                              | O que acontece                                                                                                                                                                          | Correção                                     |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| Confiar em `req.body`                             | É `any`; qualquer coisa passa                                                                                                                                                           | Sempre um schema                             |
+| Sem `.strict()`                                   | Campo com typo é descartado calado                                                                                                                                                      | `.strict()`                                  |
+| `criarSchema.partial()` no PATCH                  | Defaults sobrescrevem o salvo                                                                                                                                                           | Campos sem default                           |
+| `req.query = data` no Express 5                   | `TypeError`: só tem getter                                                                                                                                                              | `res.locals`                                 |
+| `safeParse(req.body)` sem `?? {}`                 | "expected object, received undefined"                                                                                                                                                   | `req.body ?? {}`                             |
+| `z.coerce.boolean()` em query                     | `"false"` vira `true`                                                                                                                                                                   | `enum + transform`                           |
+| `z.number()` em query                             | Sempre falha: chega string                                                                                                                                                              | `z.coerce.number()`                          |
+| Só o primeiro erro na resposta                    | Usuário corrige um por vez                                                                                                                                                              | Devolva `issues` inteiro                     |
+| Erro sem nome de campo                            | Front não sabe onde marcar                                                                                                                                                              | `path` no `.refine()`                        |
+| `.refine()` batendo no banco                      | Schema deixa de ser testável                                                                                                                                                            | Regra de negócio no service                  |
+| Validar só na entrada, tipar na mão               | Duas verdades divergem                                                                                                                                                                  | `z.infer`                                    |
+| Ler o campo pelo `path` no `unrecognized_keys`    | O `path` vem **vazio**: quem foi reprovado é o objeto, não um campo. A lista sai com `(raiz)` e esconde o nome que o cliente precisa corrigir                                           | As chaves estão em `issue.keys`              |
+| `.refine()` supondo que o `.regex()` acima barrou | As checagens **não param na primeira que falha**: o refine roda sobre a entrada já reprovada. Se ele fizer `new Date(x).toISOString()`, o `Invalid Date` **lança** e o 422 vira **500** | O refine tem que aguentar entrada malformada |
 
 ## Cheatsheet
 
