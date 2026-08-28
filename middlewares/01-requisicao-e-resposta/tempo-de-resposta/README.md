@@ -18,7 +18,7 @@ Medir dentro de cada handler não resolve: são duas linhas por rota, elas somem
 primeiro `return` antecipado, ninguém lembra de colocá-las na rota nova, e a
 medida não cobre o que roda **antes** do handler. O tempo de uma requisição não
 pertence a nenhuma rota em particular — é exatamente o caso que o
-[módulo 05](../../../docs/05-middlewares.md) descreve.
+[módulo 05](../../../docs/01-05/05-middlewares.md) descreve.
 
 ## Como funciona
 
@@ -184,7 +184,7 @@ Este repositório já pagou por essa: a versão que funciona está em
   chegar na tela de quem está numa conexão ruim.
 - **Não guarda nada.** Cada resposta carrega seu número e ele some. Transformar
   isso em histórico, percentil e alerta é métrica, assunto do
-  [módulo 14](../../../docs/14-observabilidade.md).
+  [módulo 14](../../../docs/11-15/14-observabilidade.md).
 - **Não mede rota por rota separadamente.** Para saber que `/pedidos` é o lento,
   alguém precisa agregar — o middleware de [`log`](../log/README.md) é o primeiro
   passo disso.

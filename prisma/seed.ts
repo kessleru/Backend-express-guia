@@ -8,7 +8,7 @@
  * vezes for. É a mesma ideia do `INSERT OR IGNORE` do módulo 09.
  */
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3';
-import { PrismaClient } from '../src/exemplos/10-prisma/gerado/client.ts';
+import { PrismaClient } from '../src/exemplos/06-10/10-prisma/gerado/client.ts';
 
 const url = process.env.DATABASE_URL_PRISMA ?? 'file:./data/prisma-10.sqlite';
 const prisma = new PrismaClient({ adapter: new PrismaBetterSqlite3({ url }) });

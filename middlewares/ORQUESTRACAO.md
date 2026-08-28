@@ -16,14 +16,14 @@ constrói os middlewares daquele grupo e para.
 
 ## 1. O que vale para os quatro grupos
 
-| Regra                     | Detalhe                                                                                                                                              |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Não reexplique o 05**   | `docs/05-middlewares.md` já ensina o que é middleware, a ordem, a fábrica e os 4 argumentos do de erro. Conceito de lá vira **link**, não parágrafo. |
-| **Cada pasta é copiável** | O `middleware.ts` não importa nada de outra pasta do catálogo. Se depende de um `AppError`, ele é definido ali ou o README diz o que trocar.         |
-| **Zero dependência nova** | Só o que já está no `package.json`: `express`, `zod`, `jsonwebtoken`, `helmet`, `express-rate-limit`, `morgan`, `cors` e os módulos `node:`.         |
-| **Uma porta por grupo**   | `6101` a `6104`. A faixa `50NN` é dos exemplos, `4NN0` das soluções e `600N` das minis APIs; a `610N` é desta pasta.                                 |
-| **Pequeno de verdade**    | Cada `middleware.ts` fica entre ~30 e ~90 linhas de código. Passou muito disso, ele está fazendo duas coisas — separe ou corte.                      |
-| **Roda sem setup**        | `node middlewares/NN-grupo/servidor.ts` e pronto. Sem banco, sem variável de ambiente obrigatória.                                                   |
+| Regra                     | Detalhe                                                                                                                                                    |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Não reexplique o 05**   | `docs/01-05/05-middlewares.md` já ensina o que é middleware, a ordem, a fábrica e os 4 argumentos do de erro. Conceito de lá vira **link**, não parágrafo. |
+| **Cada pasta é copiável** | O `middleware.ts` não importa nada de outra pasta do catálogo. Se depende de um `AppError`, ele é definido ali ou o README diz o que trocar.               |
+| **Zero dependência nova** | Só o que já está no `package.json`: `express`, `zod`, `jsonwebtoken`, `helmet`, `express-rate-limit`, `morgan`, `cors` e os módulos `node:`.               |
+| **Uma porta por grupo**   | `6101` a `6104`. A faixa `50NN` é dos exemplos, `4NN0` das soluções e `600N` das minis APIs; a `610N` é desta pasta.                                       |
+| **Pequeno de verdade**    | Cada `middleware.ts` fica entre ~30 e ~90 linhas de código. Passou muito disso, ele está fazendo duas coisas — separe ou corte.                            |
+| **Roda sem setup**        | `node middlewares/NN-grupo/servidor.ts` e pronto. Sem banco, sem variável de ambiente obrigatória.                                                         |
 
 ### Convenções técnicas (as mesmas do repositório)
 

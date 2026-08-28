@@ -2,7 +2,7 @@
  * log — uma linha JSON por requisição, com método, rota, status, duração e o id
  * da requisição.
  *
- * Conceito de middleware, ordem e `res.on('finish')`: docs/05-middlewares.md.
+ * Conceito de middleware, ordem e `res.on('finish')`: docs/01-05/05-middlewares.md.
  * Copiável: não importa nada de outra pasta do catálogo — daí a chave repetida
  * abaixo em vez de um import da pasta `id-de-requisicao`.
  */

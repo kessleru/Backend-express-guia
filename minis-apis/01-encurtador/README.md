@@ -406,11 +406,11 @@ curl -s -X DELETE -w "\n%{http_code}\n" http://localhost:6001/links/node-db
 
 ## Para estudar
 
-- [03 — Express básico](../../docs/03-express-basico.md): rota, `req.params`,
+- [03 — Express básico](../../docs/01-05/03-express-basico.md): rota, `req.params`,
   `req.body`, status e o `404` de rota inexistente.
-- [04 — Roteamento](../../docs/04-roteamento.md): a ordem em que as rotas são
+- [04 — Roteamento](../../docs/01-05/04-roteamento.md): a ordem em que as rotas são
   testadas, que é o que faz `/:codigo` ter de ficar por último.
-- [05 — Middlewares](../../docs/05-middlewares.md): a pilha, `next()`, e por que
+- [05 — Middlewares](../../docs/01-05/05-middlewares.md): a pilha, `next()`, e por que
   `res.on('finish')` serve para logar mas não para carimbar cabeçalho.
-- [01 — Fundamentos de HTTP](../../docs/01-fundamentos-http.md): a família `3xx`,
+- [01 — Fundamentos de HTTP](../../docs/01-05/01-fundamentos-http.md): a família `3xx`,
   o cabeçalho `Location` e as opções de `curl` usadas aqui.

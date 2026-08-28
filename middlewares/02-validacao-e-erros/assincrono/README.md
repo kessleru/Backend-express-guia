@@ -15,7 +15,7 @@ O framework chamava o handler e ignorava o valor de retorno; a Promise rejeitada
 não tinha ninguém escutando, e o resultado era um `unhandledRejection` — a
 requisição **pendurava** até o cliente desistir por timeout, e o processo caía
 junto se a rede de segurança do processo estivesse configurada
-([módulo 06](../../../docs/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)).
+([módulo 06](../../../docs/06-10/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)).
 
 Um `throw` síncrono ia para o tratador; o mesmo `throw` dentro de um `async` não
 ia. Duas rotas visualmente idênticas com desfechos opostos, e a diferença era uma
@@ -74,7 +74,7 @@ flowchart TD
 O `encaminharErro` é a ponte: ele guarda o `next` — que continua válido, porque é
 uma closure e a requisição continua aberta esperando resposta — e chama-o de
 dentro do `catch`, já na pilha nova. É o `next(erro)` que o
-[módulo 06](../../../docs/06-tratamento-de-erros.md#nexterro-quando-throw-não-serve)
+[módulo 06](../../../docs/06-10/06-tratamento-de-erros.md#nexterro-quando-throw-não-serve)
 descreve como "a única saída" nesse caso.
 
 ## O código
@@ -241,7 +241,7 @@ assíncrono fora da pilha, o que serve é `.catch(next)` diretamente na Promise.
   biblioteca que emite `error` sem você escutar, Promise solta num módulo —
   continua chegando em `uncaughtException` e `unhandledRejection`, e a
   recomendação lá é **logar e sair**
-  ([módulo 06](../../../docs/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)).
+  ([módulo 06](../../../docs/06-10/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)).
 - **Não faz o `res` esperar.** Se o handler já respondeu e o erro vem depois, não
   há resposta a corrigir. O tratador devolve ao Express, que derruba a conexão.
 - **Não cancela nada.** O trabalho assíncrono que falhou continua onde estava —

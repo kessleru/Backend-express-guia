@@ -23,7 +23,7 @@ ou para todo mundo?".
 Nenhuma dessas perguntas se responde lendo. Todas se respondem **filtrando por
 campo** — e para filtrar por campo, a linha precisa ter campos. É a diferença
 entre uma frase e um objeto, e é o assunto do
-[módulo 14](../../../docs/14-observabilidade.md), que troca o `morgan` por um
+[módulo 14](../../../docs/11-15/14-observabilidade.md), que troca o `morgan` por um
 logger estruturado de verdade. Aqui, no módulo 05, a linha é escrita à mão para
 que o mecanismo apareça: quem escreve os campos uma vez entende o que o logger
 pronto está fazendo por baixo, e o que ele **não** faz.
@@ -32,7 +32,7 @@ O outro lado do problema é a razão de isto ser um middleware e não uma linha 
 cada handler: a rota que ninguém lembrou de instrumentar é exatamente a que vai
 falhar, e o 404 — que não tem handler nenhum — some por completo. O log é a coisa
 que precisa acontecer em toda requisição sem pertencer a nenhuma rota, o caso do
-[módulo 05](../../../docs/05-middlewares.md).
+[módulo 05](../../../docs/01-05/05-middlewares.md).
 
 ## Como funciona
 
@@ -131,7 +131,7 @@ serve para **contar**: "quantos 500 em `/pedidos/:id` hoje", "qual a duração
 mediana de `/relatorios`". Se você agrupar pelo caminho cru, cada id de recurso
 vira uma série própria: `/pedidos/1`, `/pedidos/2`, `/pedidos/3`… mil pedidos
 viram mil "rotas", e qualquer contagem por rota deixa de significar coisa alguma.
-Isso vira métrica no [módulo 14](../../../docs/14-observabilidade.md).
+Isso vira métrica no [módulo 14](../../../docs/11-15/14-observabilidade.md).
 
 `caminho` é o valor real (`/lento/120`). Ele não serve para agrupar, e serve para
 o caso individual: quando você já achou a requisição pelo `id` e quer saber
@@ -152,7 +152,7 @@ restrito e auditoria; o log não tem nada disso — ele é copiado para um agreg
 fica visível para o time inteiro, é retido por meses "para o caso de precisar" e
 quase nunca é criptografado. Um token que caiu no log continua válido em backups
 que ninguém lembra que existem. O
-[módulo 14](../../../docs/14-observabilidade.md) tem a lista completa e a
+[módulo 14](../../../docs/11-15/14-observabilidade.md) tem a lista completa e a
 configuração de redação que automatiza isso.
 
 `req.body` fica de fora inteiro, e não filtrado: é por onde passam a senha do
@@ -210,7 +210,7 @@ O custo é honesto e precisa ser dito, porque `console.log` em produção tem
 defeitos concretos: ele é **síncrono** quando a saída é arquivo ou pipe (o
 processo para de atender requisições enquanto escreve), não tem nível — não há
 como calar as linhas de `info` sem apagar código — e cada `JSON.stringify` é
-feito na thread principal. O [módulo 14](../../../docs/14-observabilidade.md)
+feito na thread principal. O [módulo 14](../../../docs/11-15/14-observabilidade.md)
 troca os três.
 
 ### Uma linha no fim, não uma no começo e outra no fim
@@ -289,13 +289,13 @@ campos preenchidos, e três deles estão errados.
 
 - **Não tem níveis.** Toda linha sai igual, e não há como pedir "só os erros" sem
   editar o código. Nível, e a variável de ambiente que o controla, é
-  [módulo 14](../../../docs/14-observabilidade.md).
+  [módulo 14](../../../docs/11-15/14-observabilidade.md).
 - **Não redige nada.** A proteção aqui é o que **não** foi escrito — uma escolha
   humana, que falha na primeira vez que alguém acrescenta um campo com pressa. A
   defesa que não depende de disciplina é o `redact` do logger, no módulo 14.
 - **Não loga o erro em si.** Ele registra que a resposta foi 500; a exceção, a
   mensagem e a stack ficam com o `tratador-de-erros`, do grupo 02 deste catálogo
-  e do [módulo 06](../../../docs/06-tratamento-de-erros.md).
+  e do [módulo 06](../../../docs/06-10/06-tratamento-de-erros.md).
 - **Não escreve em arquivo nem envia para lugar nenhum.** A linha vai para
   `stdout`, e quem a coleta é o processo de fora (o `systemd`, o Docker, o agente
   do agregador). Isso é escolha corrente e boa — a aplicação não deve saber onde o

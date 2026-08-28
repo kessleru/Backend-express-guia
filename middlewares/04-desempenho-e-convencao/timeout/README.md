@@ -149,7 +149,7 @@ que não existe.
 `503 Service Unavailable` diz "este serviço não conseguiu atender agora, tente
 de novo". É o que aconteceu, e é o que os clientes já sabem interpretar: cliente
 HTTP repete em `503`, balanceador tira do rodízio a instância que só devolve
-`503`, o alerta de `5xx` dispara (docs/01-fundamentos-http.md).
+`503`, o alerta de `5xx` dispara (docs/01-05/01-fundamentos-http.md).
 
 O que se perde: `503` não distingue "demorei demais" de "estou sobrecarregado"
 nem de "estou em manutenção". Por isso o corpo carrega `limiteMs` — a
@@ -213,7 +213,7 @@ timeout` no banco. O middleware não tem como impor isso a código que já rodou
   chamar o middleware, nem o tempo que a resposta leva na rede depois.
 - **Não avisa ninguém.** Um `503` por timeout é sintoma de problema, e deveria
   virar métrica. Observabilidade é o módulo 14
-  ([docs/14-observabilidade.md](../../../docs/14-observabilidade.md)).
+  ([docs/11-15/14-observabilidade.md](../../../docs/11-15/14-observabilidade.md)).
 
 ## Testado assim
 

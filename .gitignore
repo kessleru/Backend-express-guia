@@ -36,7 +36,7 @@ Thumbs.db
 .vscode/
 
 # Prisma Client gerado (módulo 10) — recriado por `npx prisma generate`
-src/exemplos/10-prisma/gerado/
+src/exemplos/06-10/10-prisma/gerado/
 
 # Prisma da mini 06 (leva 2) — recriado por `npx prisma generate`
 minis-apis/06-compras/prisma/gerado/

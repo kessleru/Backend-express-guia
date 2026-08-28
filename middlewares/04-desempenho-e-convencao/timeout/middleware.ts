@@ -1,7 +1,7 @@
 /**
  * Timeout de requisição: desiste de esperar o handler e responde ao cliente.
  *
- * Conceito de middleware: docs/05-middlewares.md. Status: docs/01-fundamentos-http.md.
+ * Conceito de middleware: docs/01-05/05-middlewares.md. Status: docs/01-05/01-fundamentos-http.md.
  *
  * O que este arquivo NÃO faz, e é a primeira coisa a saber: ele não cancela o
  * handler. Não existe em Node uma forma de matar uma função que já começou. O

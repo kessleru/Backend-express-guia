@@ -167,7 +167,7 @@ terminal({
     `  ${m}"mensagem"${_}: ${v}"Servidor no ar 🚀"${_},`,
     `  ${m}"proximosPassos"${_}: [`,
     `    ${v}"Leia o README.md para o índice do curso"${_},`,
-    `    ${v}"Comece por docs/01-fundamentos-http.md"${_},`,
+    `    ${v}"Comece por docs/01-05/01-fundamentos-http.md"${_},`,
     `    ${v}"Escreva seu próprio código em src/playground/"${_}`,
     `  ]`,
     `}`,

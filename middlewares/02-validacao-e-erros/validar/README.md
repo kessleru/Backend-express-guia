@@ -2,7 +2,7 @@
 
 📦 módulo 07 · 🧩 grupo 02
 
-Valida `body`, `params` ou `query` contra um schema [Zod](../../../docs/07-validacao-zod.md)
+Valida `body`, `params` ou `query` contra um schema [Zod](../../../docs/06-10/07-validacao-zod.md)
 e responde **422** com a lista dos campos que falharam.
 
 ## O problema
@@ -26,7 +26,7 @@ existe na cabeça de quem escreveu.
 
 ## Como funciona
 
-O middleware é uma **fábrica** ([módulo 05](../../../docs/05-middlewares.md#middleware-com-argumento-fábrica)):
+O middleware é uma **fábrica** ([módulo 05](../../../docs/01-05/05-middlewares.md#middleware-com-argumento-fábrica)):
 `validar(schema, alvo)` não é o middleware, é a função que devolve um. É isso
 que permite um arquivo só atender `body`, `params` e `query` — o alvo é
 argumento, não uma cópia do código.
@@ -227,7 +227,7 @@ Um mesmo middleware que funciona em dois alvos e explode no terceiro é pior que
 um que não funciona em nenhum.
 
 Efeito colateral bom: o dado original continua em `req`, que é o que uma trilha
-de auditoria precisa registrar ([módulo 14](../../../docs/14-observabilidade.md)).
+de auditoria precisa registrar ([módulo 14](../../../docs/11-15/14-observabilidade.md)).
 
 ### O erro sai por `next(erro)`, não por `res.status(422)`
 
@@ -287,9 +287,9 @@ como se ele fosse receber qualquer coisa — porque vai:
 - **Não valida regra de negócio.** "Este contrato existe", "este e-mail já tem
   conta" e "você é dono deste chamado" dependem de consultar dados, e a resposta
   delas é 404, 409 ou 403 — não 422. Isso vive no service
-  ([módulo 08](../../../docs/08-arquitetura-em-camadas.md)).
+  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)).
 - **Não sanitiza HTML.** Uma string válida pode ser `<script>`. Escapar na saída
-  é assunto do [módulo 13](../../../docs/13-seguranca.md).
+  é assunto do [módulo 13](../../../docs/11-15/13-seguranca.md).
 - **Não valida o corpo da resposta.** O contrato de saída também pode ter schema;
   aqui só a entrada é conferida.
 - **Não traduz as mensagens padrão do Zod.** Campo sem `error:` próprio responde

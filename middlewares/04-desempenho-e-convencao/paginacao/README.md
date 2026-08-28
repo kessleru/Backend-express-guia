@@ -35,7 +35,7 @@ dezenas de megabytes de JSON e cai.
 ## Como funciona
 
 O middleware roda antes do handler, lê os dois parâmetros da query string,
-valida com um schema [Zod](../../../docs/07-validacao-zod.md), e deixa o
+valida com um schema [Zod](../../../docs/06-10/07-validacao-zod.md), e deixa o
 resultado em `req.paginacao`. A rota não vê query string nenhuma — ela vê três
 números já prontos.
 
@@ -53,7 +53,7 @@ não chega ao handler — vira `422` no middleware.
 
 O terceiro número, o `offset`, não vem da query: é calculado. `offset` é quantas
 linhas pular antes de começar a contar — é literalmente o `OFFSET` do SQL
-(`docs/09-sqlite-e-sql.md`) e o primeiro argumento do `.slice()` em memória. A
+(`docs/06-10/09-sqlite-e-sql.md`) e o primeiro argumento do `.slice()` em memória. A
 conta é `(pagina - 1) * limite`, e o `- 1` existe porque a página 1 não pula
 nada.
 
@@ -286,7 +286,7 @@ itens }` é a rota. O middleware entrega os números de entrada; o `total`
 - **Não ordena nada.** Paginação sem `ORDER BY` estável é sorteio: o banco não
   promete devolver as linhas na mesma ordem em duas consultas, então a página 2
   pode trazer o que já veio na 1. Quem pagina precisa ordenar por algo único —
-  normalmente o `id`. Isso é `docs/09-sqlite-e-sql.md`.
+  normalmente o `id`. Isso é `docs/06-10/09-sqlite-e-sql.md`.
 - **Não resolve o custo do `OFFSET` alto.** Este é o limite honesto da
   estratégia inteira, não deste arquivo. `OFFSET 100000` faz o banco ler e
   descartar cem mil linhas antes de começar a devolver — o tempo de resposta

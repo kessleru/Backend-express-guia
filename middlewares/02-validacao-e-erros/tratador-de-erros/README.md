@@ -28,7 +28,7 @@ inconveniência, o terceiro é vazamento.
 
 ## Como funciona
 
-Ele é o **middleware de erro** do [módulo 05](../../../docs/05-middlewares.md#middleware-de-erro-4-argumentos):
+Ele é o **middleware de erro** do [módulo 05](../../../docs/01-05/05-middlewares.md#middleware-de-erro-4-argumentos):
 o Express o reconhece pela quantidade de argumentos declarados e só o chama
 quando alguém lançou ou passou algo para `next(erro)`. Requisição que dá certo
 não passa por aqui.
@@ -206,7 +206,7 @@ if (!chamado) throw naoEncontrado('Chamado', id);
 ```
 
 Quem lança não precisa conhecer `res` — é o que permite reusar a mesma função
-num service ([módulo 08](../../../docs/08-arquitetura-em-camadas.md)) ou num
+num service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)) ou num
 worker, onde requisição nenhuma existe.
 
 ## As decisões e o porquê
@@ -214,7 +214,7 @@ worker, onde requisição nenhuma existe.
 ### A checagem é estrutural, não `instanceof`
 
 **Descartado:** `if (erro instanceof AppError)`, que é a forma canônica e a que o
-[módulo 06](../../../docs/06-tratamento-de-erros.md) usa. Custo: `instanceof`
+[módulo 06](../../../docs/06-10/06-tratamento-de-erros.md) usa. Custo: `instanceof`
 compara a identidade da classe, não o formato. Duas cópias da mesma classe — a
 deste catálogo e a que você já tinha, ou duas versões do mesmo pacote resolvidas
 em `node_modules` diferentes — produzem `false`. E o `false` aqui não quebra
@@ -241,7 +241,7 @@ Custo: a mensagem de um erro imprevisto contém o que quer que a biblioteca tenh
 posto nela — caminho de arquivo, trecho de query SQL, o valor que causou a falha.
 E ela vaza sem barulho: a API continua respondendo 500, nada quebra, e ninguém
 lembra de tirar depois da investigação. Quem defende essa decisão ao longo do
-tempo é o teste do [módulo 12](../../../docs/12-testes.md) que confere o corpo do 500.
+tempo é o teste do [módulo 12](../../../docs/11-15/12-testes.md) que confere o corpo do 500.
 
 Se o suporte precisa correlacionar o relato com a linha de log, o que entra na
 resposta é um **id de requisição**, não a mensagem — é o
@@ -251,7 +251,7 @@ resposta é um **id de requisição**, não a mensagem — é o
 
 **Descartado:** `pino` aqui dentro. Custo: uma dependência na pasta que deveria
 ser copiável para qualquer projeto. Em produção troque por uma linha estruturada
-com o id da requisição ([módulo 14](../../../docs/14-observabilidade.md)); o que
+com o id da requisição ([módulo 14](../../../docs/11-15/14-observabilidade.md)); o que
 não pode mudar é **a stack ir para o log e não para o corpo**.
 
 ### `res.headersSent` → `next(erro)`
@@ -303,15 +303,15 @@ chamadas inteira.
   numa promise sem `catch` fora da requisição não passa por aqui — vira
   `uncaughtException`/`unhandledRejection`. A pasta
   [`assincrono`](../assincrono/README.md) mostra a ponte, e o
-  [módulo 06](../../../docs/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)
+  [módulo 06](../../../docs/06-10/06-tratamento-de-erros.md#a-rede-de-segurança-do-processo)
   cobre a rede de segurança do processo.
 - **Não põe `requestId` na resposta.** Ele não tem de onde tirar; quem produz é o
   `id-de-requisicao` do grupo 01.
 - **Não avisa ninguém.** Um 500 aqui vira uma linha no `stdout`. Alerta e
-  agregação são do [módulo 14](../../../docs/14-observabilidade.md).
+  agregação são do [módulo 14](../../../docs/11-15/14-observabilidade.md).
 - **Não traduz erro de banco.** Uma violação de unicidade do SQLite chega como
   erro cru e vira 500; converter para 409 é trabalho do service
-  ([módulo 09](../../../docs/09-sqlite-e-sql.md)).
+  ([módulo 09](../../../docs/06-10/09-sqlite-e-sql.md)).
 
 ## Testado assim
 

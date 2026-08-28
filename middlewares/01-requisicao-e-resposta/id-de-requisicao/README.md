@@ -29,7 +29,7 @@ procurar por horário aproximado num arquivo com dez mil linhas por minuto.
 O que resolve é uma chave: um valor por requisição, presente em toda linha que
 ela produzir, e devolvido para quem chamou. É a coisa que precisa acontecer em
 toda rota sem pertencer a nenhuma — o caso do
-[módulo 05](../../../docs/05-middlewares.md).
+[módulo 05](../../../docs/01-05/05-middlewares.md).
 
 ## Como funciona
 
@@ -198,13 +198,13 @@ um argumento de linha de comando —, onde não há parser nenhum filtrando ante
 ## O que ele não faz
 
 - **Não identifica o usuário.** O id é da requisição, e some com ela. Saber quem
-  está falando é autenticação, do [módulo 11](../../../docs/11-autenticacao.md) e
+  está falando é autenticação, do [módulo 11](../../../docs/11-15/11-autenticacao.md) e
   do grupo 03 deste catálogo.
 - **Não propaga sozinho.** Ele aceita e devolve o id; enviar o valor quando
   **esta** API chama outra é trabalho do código que faz a chamada.
 - **Não é `trace_id`.** Um rastro distribuído tem também id de span, relação de
   pai e filho e contexto propagado num formato padronizado (`traceparent`, do W3C).
-  Isso é o [módulo 14](../../../docs/14-observabilidade.md).
+  Isso é o [módulo 14](../../../docs/11-15/14-observabilidade.md).
 - **Não escreve log.** Ele só resolve o valor; quem o usa é o
   [`log`](../log/README.md).
 

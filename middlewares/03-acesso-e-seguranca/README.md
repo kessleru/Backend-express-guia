@@ -84,14 +84,14 @@ curl.exe -s -i http://localhost:6103/publico
 
 - **Login de verdade.** `POST /sessoes` não confere senha nenhuma. Hash com
   Argon2, comparação em tempo constante e refresh token estão no
-  [módulo 11](../../docs/11-autenticacao.md).
+  [módulo 11](../../docs/11-15/11-autenticacao.md).
 - **Autorização por dono do recurso.** "Só o autor edita o próprio post" precisa
   buscar o recurso para comparar, e por isso mora no service
-  ([módulo 08](../../docs/08-arquitetura-em-camadas.md)), não num middleware.
+  ([módulo 08](../../docs/06-10/08-arquitetura-em-camadas.md)), não num middleware.
 - **Contador de rate limit compartilhado.** As duas versões contam na memória de
   um processo; com dois, o teto real dobra. Redis, no módulo 15.
 - **CORS.** Helmet não faz CORS, e os dois são confundidos com frequência —
-  [módulo 13](../../docs/13-seguranca.md#cors-o-que-ele-faz-e-o-que-ele-definitivamente-não-faz).
+  [módulo 13](../../docs/11-15/13-seguranca.md#cors-o-que-ele-faz-e-o-que-ele-definitivamente-não-faz).
 
 Cada pasta traz o seu limite honesto por extenso, na seção `## O que ele não
 faz`.

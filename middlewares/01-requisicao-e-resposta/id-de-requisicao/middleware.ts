@@ -2,7 +2,7 @@
  * id-de-requisicao — dá um identificador a cada requisição, aceita o que já vier
  * do cliente e devolve o valor no cabeçalho `X-Request-Id`.
  *
- * Conceito de middleware, ordem e `res.locals`: docs/05-middlewares.md.
+ * Conceito de middleware, ordem e `res.locals`: docs/01-05/05-middlewares.md.
  * Copiável: não importa nada de outra pasta do catálogo.
  */
 import { randomUUID } from 'node:crypto';

@@ -17,17 +17,17 @@ qual é a armadilha que o código evita sem parecer que evita. Quem copia sem is
 descobre o problema em produção, que é exatamente onde ele custa caro.
 
 O conceito de middleware — a ordem, a fábrica, os quatro argumentos do middleware
-de erro — está em [`docs/05-middlewares.md`](../docs/05-middlewares.md). Este
+de erro — está em [`docs/01-05/05-middlewares.md`](../docs/01-05/05-middlewares.md). Este
 catálogo não reexplica nada disso: ele aplica.
 
 ## Os quatro grupos
 
-| Grupo                                                     | Porta | O que reúne                                                            |
-| --------------------------------------------------------- | ----- | ---------------------------------------------------------------------- |
-| [`01-requisicao-e-resposta`](01-requisicao-e-resposta/)   | 6101  | tempo de resposta, id de requisição, log                               |
-| [`02-validacao-e-erros`](02-validacao-e-erros/)           | 6102  | validar com schema, tratador central, 404, e o wrapper `async`         |
-| [`03-acesso-e-seguranca`](03-acesso-e-seguranca/)         | 6103  | autenticar, exigir papel, limitar requisições, cabeçalhos de segurança |
-| [`04-desempenho-e-convencao`](04-desempenho-e-convencao/) | 6104  | cache condicional com ETag, timeout, paginação                         |
+| Grupo                                                       | Porta | O que reúne                                                            |
+| ----------------------------------------------------------- | ----- | ---------------------------------------------------------------------- |
+| [`01-requisicao-e-resposta`](./01-requisicao-e-resposta/)   | 6101  | tempo de resposta, id de requisição, log                               |
+| [`02-validacao-e-erros`](./02-validacao-e-erros/)           | 6102  | validar com schema, tratador central, 404, e o wrapper `async`         |
+| [`03-acesso-e-seguranca`](./03-acesso-e-seguranca/)         | 6103  | autenticar, exigir papel, limitar requisições, cabeçalhos de segurança |
+| [`04-desempenho-e-convencao`](./04-desempenho-e-convencao/) | 6104  | cache condicional com ETag, timeout, paginação                         |
 
 Os 14 middlewares, e o que cada um existe para ensinar:
 
@@ -89,4 +89,4 @@ Middleware de **upload** (módulo 19), de **compressão** e de **cache
 distribuído** com Redis (módulo 15) ficaram de fora: os três dependem de
 dependência que o repositório ainda não tem, e a regra desta pasta é não instalar
 nada novo. O briefing de quem for acrescentar está em
-[`ORQUESTRACAO.md`](ORQUESTRACAO.md).
+[`ORQUESTRACAO.md`](./ORQUESTRACAO.md).

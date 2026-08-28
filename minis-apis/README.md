@@ -28,15 +28,15 @@ realmente guarda — antes de qualquer linha de código.
 
 ## As sete
 
-| #   | Mini API                          | Domínio                               | Módulos         | Porta | Persistência    |
-| --- | --------------------------------- | ------------------------------------- | --------------- | ----- | --------------- |
-| 1   | [`01-encurtador`](01-encurtador/) | Encurtador de links                   | 03–05           | 6001  | memória (`Map`) |
-| 2   | [`02-inscricoes`](02-inscricoes/) | Inscrição em evento com vaga limitada | 03–07           | 6002  | memória         |
-| 3   | [`03-despesas`](03-despesas/)     | Controle de gastos pessoais           | 03–09           | 6003  | SQLite          |
-| 4   | [`04-enquetes`](04-enquetes/)     | Enquete com apuração                  | 03–09, sem o 07 | 6004  | SQLite          |
-| 5   | [`05-reservas`](05-reservas/)     | Reserva de sala por horário           | 03–07           | 6005  | memória         |
-| 6   | [`06-compras`](06-compras/)       | Lista de compras compartilhada        | 03–11           | 6006  | Prisma          |
-| 7   | [`07-habitos`](07-habitos/)       | Rastreador de hábitos privado         | 03–11           | 6007  | SQLite          |
+| #   | Mini API                            | Domínio                               | Módulos         | Porta | Persistência    |
+| --- | ----------------------------------- | ------------------------------------- | --------------- | ----- | --------------- |
+| 1   | [`01-encurtador`](./01-encurtador/) | Encurtador de links                   | 03–05           | 6001  | memória (`Map`) |
+| 2   | [`02-inscricoes`](./02-inscricoes/) | Inscrição em evento com vaga limitada | 03–07           | 6002  | memória         |
+| 3   | [`03-despesas`](./03-despesas/)     | Controle de gastos pessoais           | 03–09           | 6003  | SQLite          |
+| 4   | [`04-enquetes`](./04-enquetes/)     | Enquete com apuração                  | 03–09, sem o 07 | 6004  | SQLite          |
+| 5   | [`05-reservas`](./05-reservas/)     | Reserva de sala por horário           | 03–07           | 6005  | memória         |
+| 6   | [`06-compras`](./06-compras/)       | Lista de compras compartilhada        | 03–11           | 6006  | Prisma          |
+| 7   | [`07-habitos`](./07-habitos/)       | Rastreador de hábitos privado         | 03–11           | 6007  | SQLite          |
 
 O que cada uma ensina:
 
@@ -141,4 +141,4 @@ Cada `README.md` tem uma seção `## O que ficou de fora` dizendo o que falta e
 Ainda não apareceu em mini nenhuma: teste automatizado (12), rate limit e
 cabeçalhos de segurança (13), log estruturado (14), cache (15) e upload (19). O
 briefing de quem constrói as próximas está em
-[`ORQUESTRACAO.md`](ORQUESTRACAO.md).
+[`ORQUESTRACAO.md`](./ORQUESTRACAO.md).

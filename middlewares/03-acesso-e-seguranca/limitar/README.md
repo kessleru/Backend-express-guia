@@ -13,7 +13,7 @@ tentativas por segundo. Sem limite nenhum, a conta cai em minutos — e o servid
 responde a cada tentativa educadamente, porque cada uma delas é uma requisição
 HTTP perfeitamente válida.
 
-O Argon2 do [módulo 11](../../../docs/11-autenticacao.md#hash-de-senha-por-que-não-sha-256)
+O Argon2 do [módulo 11](../../../docs/11-15/11-autenticacao.md#hash-de-senha-por-que-não-sha-256)
 torna cada tentativa cara, uns 200 ms de CPU. Isso reduz o ritmo do atacante e
 cria um problema novo: agora cada tentativa custa 200 ms **do seu servidor**.
 Rate limit é o que transforma "caro" em "inviável", e é o que impede que a defesa
@@ -89,7 +89,7 @@ módulo é compartilhado por todas as rotas que importarem daqui, e aí um limit
 de leitura passa a gastar a cota do de escrita. Dentro da fábrica, cada chamada
 de `limitarNaMao(...)` tem o seu contador — que é o que permite o balde separado
 por finalidade que o
-[módulo 13](../../../docs/13-seguranca.md#rate-limiting-e-brute-force) recomenda:
+[módulo 13](../../../docs/11-15/13-seguranca.md#rate-limiting-e-brute-force) recomenda:
 uma cota para o login, outra para a navegação normal.
 
 `req.ip` é a aproximação mais grosseira possível de "quem é o cliente". Um
@@ -281,10 +281,10 @@ API, para uma resposta que ele quase nunca vê e portanto quase nunca testa.
   WAF, proteção do provedor —, não de um middleware dentro do processo.
 - **Não substitui autenticação nem autorização.** Ele limita quantas vezes, não
   quem nem o quê: um atacante dentro do limite continua entrando. É uma camada da
-  [defesa em profundidade](../../../docs/13-seguranca.md#defesa-em-profundidade).
+  [defesa em profundidade](../../../docs/11-15/13-seguranca.md#defesa-em-profundidade).
 - **Não avisa ninguém.** Uma rajada de 429 é o sinal mais claro de que algo está
   acontecendo, e transformá-la em alerta é
-  [observabilidade](../../../docs/14-observabilidade.md), do módulo 14.
+  [observabilidade](../../../docs/11-15/14-observabilidade.md), do módulo 14.
 
 ## Testado assim
 
