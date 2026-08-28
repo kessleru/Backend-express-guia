@@ -45,7 +45,11 @@ export function tempoDeResposta(_req: Request, res: Response, next: NextFunction
  * antes do corpo, e não há como voltar atrás. `res.setHeader` confere
  * `res.headersSent` e lança `ERR_HTTP_HEADERS_SENT`.
  */
-export function tempoDeRespostaQuebrado(_req: Request, res: Response, next: NextFunction) {
+export function tempoDeRespostaQuebrado(
+  _req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const inicio = process.hrtime.bigint();
 
   res.on('finish', () => {

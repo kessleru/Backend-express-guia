@@ -42,7 +42,9 @@ export const conflito = (mensagem: string) => new AppError(mensagem, 409);
  * por um motivo desses, um 404 legítimo sai como 500 e nada quebra — é o tipo
  * de bug que só aparece em produção.
  */
-function ehEsperado(erro: unknown): erro is { status: number; message: string; detalhes?: unknown } {
+function ehEsperado(
+  erro: unknown,
+): erro is { status: number; message: string; detalhes?: unknown } {
   if (typeof erro !== 'object' || erro === null) return false;
   const candidato = erro as { status?: unknown; esperado?: unknown; message?: unknown };
   return (
@@ -96,7 +98,9 @@ export function tratadorDeErros(
   // válido. É culpa do cliente, não do servidor: sem este ramo, quem manda uma
   // vírgula sobrando recebe 500 e vai abrir chamado achando que a API caiu.
   if (erro instanceof SyntaxError && 'body' in erro) {
-    return res.status(400).json({ erro: 'JSON inválido no corpo da requisição', status: 400 });
+    return res
+      .status(400)
+      .json({ erro: 'JSON inválido no corpo da requisição', status: 400 });
   }
 
   // Daqui para baixo é bug: ninguém previu, então ninguém sabe o que a mensagem

@@ -9,22 +9,38 @@ import { z } from 'zod';
 
 import { assincrono, encaminharErro } from './assincrono/middleware.ts';
 import { rotaNaoEncontrada } from './nao-encontrado/middleware.ts';
-import { AppError, naoEncontrado, tratadorDeErros } from './tratador-de-erros/middleware.ts';
+import {
+  AppError,
+  naoEncontrado,
+  tratadorDeErros,
+} from './tratador-de-erros/middleware.ts';
 import { validados, validar } from './validar/middleware.ts';
 
 const app = express();
 const PORTA = 6102;
 
 const chamados = [
-  { id: 1, titulo: 'Impressora do 3º andar sem tinta', prioridade: 'baixa', contrato: 'ACM-1042' },
-  { id: 2, titulo: 'VPN cai a cada dez minutos', prioridade: 'alta', contrato: 'ACM-1042' },
+  {
+    id: 1,
+    titulo: 'Impressora do 3º andar sem tinta',
+    prioridade: 'baixa',
+    contrato: 'ACM-1042',
+  },
+  {
+    id: 2,
+    titulo: 'VPN cai a cada dez minutos',
+    prioridade: 'alta',
+    contrato: 'ACM-1042',
+  },
 ];
 
 const criarChamadoSchema = z
   .object({
     titulo: z.string().trim().min(5, '`titulo` precisa de 5+ caracteres').max(120),
     prioridade: z
-      .enum(['baixa', 'media', 'alta'], { error: '`prioridade` deve ser baixa, media ou alta' })
+      .enum(['baixa', 'media', 'alta'], {
+        error: '`prioridade` deve ser baixa, media ou alta',
+      })
       .default('media'),
     contrato: z
       .string()
@@ -37,7 +53,10 @@ const criarChamadoSchema = z
       //    `undefined`, o `.length` lança TypeError DE DENTRO do `safeParse`, e
       //    um 422 com a lista de campos vira um 500 sem explicação nenhuma.
       // ✅ Só comparação, e o `undefined` cai no caminho seguro:
-      .refine((valor) => valor.split('-')[0] !== 'TST', '`contrato` de teste não abre chamado'),
+      .refine(
+        (valor) => valor.split('-')[0] !== 'TST',
+        '`contrato` de teste não abre chamado',
+      ),
   })
   // `.strict()` recusa campo desconhecido em vez de descartá-lo em silêncio:
   // quem digitou `titulo` errado descobre agora, não depois de salvar vazio.
@@ -52,7 +71,12 @@ const idSchema = z.object({
 const listarSchema = z
   .object({
     pagina: z.coerce.number().int().positive().default(1),
-    limite: z.coerce.number().int().positive().max(50, '`limite` máximo é 50').default(10),
+    limite: z.coerce
+      .number()
+      .int()
+      .positive()
+      .max(50, '`limite` máximo é 50')
+      .default(10),
   })
   .strict();
 

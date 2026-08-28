@@ -95,12 +95,14 @@ function etiquetaDe(versao: string | number): string {
  */
 function combina(cabecalho: string | undefined, etiqueta: string): boolean {
   if (!cabecalho) return false;
-  return cabecalho
-    .split(',')
-    .map((valor) => valor.trim())
-    // Proxy e CDN podem enfraquecer a etiqueta no caminho, devolvendo `W/"x"`
-    // onde você mandou `"x"`. Comparar sem o prefixo evita o 200 desnecessário.
-    .some((valor) => valor === '*' || semPrefixo(valor) === semPrefixo(etiqueta));
+  return (
+    cabecalho
+      .split(',')
+      .map((valor) => valor.trim())
+      // Proxy e CDN podem enfraquecer a etiqueta no caminho, devolvendo `W/"x"`
+      // onde você mandou `"x"`. Comparar sem o prefixo evita o 200 desnecessário.
+      .some((valor) => valor === '*' || semPrefixo(valor) === semPrefixo(etiqueta))
+  );
 }
 
 const semPrefixo = (valor: string) => valor.replace(/^W\//, '');

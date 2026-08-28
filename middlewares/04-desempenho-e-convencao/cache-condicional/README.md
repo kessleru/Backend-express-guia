@@ -206,14 +206,14 @@ com dois usuários simultâneos, e não reproduz na sua máquina.
 
 ## Onde é fácil errar
 
-| Sintoma                                                          | Causa                                                                                                                                            |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`ETag` já aparece sem você fazer nada**                        | **O falso amigo.** O Express gera uma no `res.send` por padrão — veja abaixo por que ela não resolve o seu problema                               |
-| `304` chega com corpo e o cliente ignora o conteúdo              | Respondeu com `res.json()` em vez de `res.end()`. O `304` não pode ter corpo; mandar um custa mais caro que o `200`                              |
-| A resposta nunca volta `304` no navegador, mas volta no `curl`   | O cliente devolveu uma lista de etiquetas ou um `W/` que o servidor comparou com `===` no cabeçalho inteiro                                       |
-| O cliente mostra dado velho depois de uma escrita                | A versão não mudou junto com o dado. Quem escreve tem que atualizar o campo que a função de versão lê — senão a etiqueta antiga continua batendo |
-| Dado de um usuário aparece para outro                            | `public` num recurso que depende de quem pediu, ou etiqueta calculada antes da autenticação                                                      |
-| Cliente pede em dois formatos e recebe o errado                  | Falta `Vary`. A etiqueta identifica a versão do dado, não a do formato                                                                            |
+| Sintoma                                                        | Causa                                                                                                                                            |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`ETag` já aparece sem você fazer nada**                      | **O falso amigo.** O Express gera uma no `res.send` por padrão — veja abaixo por que ela não resolve o seu problema                              |
+| `304` chega com corpo e o cliente ignora o conteúdo            | Respondeu com `res.json()` em vez de `res.end()`. O `304` não pode ter corpo; mandar um custa mais caro que o `200`                              |
+| A resposta nunca volta `304` no navegador, mas volta no `curl` | O cliente devolveu uma lista de etiquetas ou um `W/` que o servidor comparou com `===` no cabeçalho inteiro                                      |
+| O cliente mostra dado velho depois de uma escrita              | A versão não mudou junto com o dado. Quem escreve tem que atualizar o campo que a função de versão lê — senão a etiqueta antiga continua batendo |
+| Dado de um usuário aparece para outro                          | `public` num recurso que depende de quem pediu, ou etiqueta calculada antes da autenticação                                                      |
+| Cliente pede em dois formatos e recebe o errado                | Falta `Vary`. A etiqueta identifica a versão do dado, não a do formato                                                                           |
 
 ### O falso amigo: o `ETag` que o Express já manda
 

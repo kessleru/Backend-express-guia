@@ -69,7 +69,9 @@ app.get('/eco', (_req, res) => {
 });
 
 app.get('/quebrado', tempoDeRespostaQuebrado, (_req, res) => {
-  res.json({ aviso: 'confira: esta resposta não tem X-Tempo-ms, e o terminal diz por quê' });
+  res.json({
+    aviso: 'confira: esta resposta não tem X-Tempo-ms, e o terminal diz por quê',
+  });
 });
 
 // 404 em JSON: sem isto o Express devolve HTML numa API que só fala JSON (módulo

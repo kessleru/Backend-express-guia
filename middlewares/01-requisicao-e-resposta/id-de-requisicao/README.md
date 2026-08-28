@@ -179,13 +179,13 @@ dentro de **toda** linha de log daquela requisição.
 
 ## Onde é fácil errar
 
-| Sintoma                                                       | Causa                                                                                                                                          |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Linha de log com aspas soltas, ou um id de 8 KB repetido em todas as linhas | **O falso amigo:** usar `req.header('X-Request-Id')` cru, sem validar. É entrada de usuário como qualquer outra                     |
-| Log sai com `"id": "sem-id"` (ou `undefined`)                 | O middleware está registrado depois de quem lê o id — ou a chave foi digitada diferente na leitura, e `res.locals` não reclama                  |
-| Todos os serviços da cadeia com ids diferentes                | O cliente HTTP interno não repassa `X-Request-Id`. Aceitar o cabeçalho aqui não basta: quem chama precisa enviá-lo                              |
-| `req.idDaRequisicao` não compila                              | O tipo `Request` do Express não tem esse campo. É a decisão de tipagem acima                                                                    |
-| Dois pedidos do mesmo usuário com o mesmo id                  | O cliente está repetindo um id fixo. O id identifica a **requisição**, não a sessão nem o usuário                                               |
+| Sintoma                                                                     | Causa                                                                                                                          |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Linha de log com aspas soltas, ou um id de 8 KB repetido em todas as linhas | **O falso amigo:** usar `req.header('X-Request-Id')` cru, sem validar. É entrada de usuário como qualquer outra                |
+| Log sai com `"id": "sem-id"` (ou `undefined`)                               | O middleware está registrado depois de quem lê o id — ou a chave foi digitada diferente na leitura, e `res.locals` não reclama |
+| Todos os serviços da cadeia com ids diferentes                              | O cliente HTTP interno não repassa `X-Request-Id`. Aceitar o cabeçalho aqui não basta: quem chama precisa enviá-lo             |
+| `req.idDaRequisicao` não compila                                            | O tipo `Request` do Express não tem esse campo. É a decisão de tipagem acima                                                   |
+| Dois pedidos do mesmo usuário com o mesmo id                                | O cliente está repetindo um id fixo. O id identifica a **requisição**, não a sessão nem o usuário                              |
 
 Sobre o falso amigo, com precisão — porque a versão folclórica dele é exagerada:
 o parser HTTP do Node **já** rejeita cabeçalho com quebra de linha. Uma tentativa

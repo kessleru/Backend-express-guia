@@ -90,7 +90,9 @@ export const conflito = (mensagem: string) => new AppError(mensagem, 409);
  * por um motivo desses, um 404 legítimo sai como 500 e nada quebra — é o tipo
  * de bug que só aparece em produção.
  */
-function ehEsperado(erro: unknown): erro is { status: number; message: string; detalhes?: unknown } {
+function ehEsperado(
+  erro: unknown,
+): erro is { status: number; message: string; detalhes?: unknown } {
   if (typeof erro !== 'object' || erro === null) return false;
   const candidato = erro as { status?: unknown; esperado?: unknown; message?: unknown };
   return (
@@ -144,7 +146,9 @@ export function tratadorDeErros(
   // válido. É culpa do cliente, não do servidor: sem este ramo, quem manda uma
   // vírgula sobrando recebe 500 e vai abrir chamado achando que a API caiu.
   if (erro instanceof SyntaxError && 'body' in erro) {
-    return res.status(400).json({ erro: 'JSON inválido no corpo da requisição', status: 400 });
+    return res
+      .status(400)
+      .json({ erro: 'JSON inválido no corpo da requisição', status: 400 });
   }
 
   // Daqui para baixo é bug: ninguém previu, então ninguém sabe o que a mensagem
@@ -237,8 +241,7 @@ Custo: a mensagem de um erro imprevisto contém o que quer que a biblioteca tenh
 posto nela — caminho de arquivo, trecho de query SQL, o valor que causou a falha.
 E ela vaza sem barulho: a API continua respondendo 500, nada quebra, e ninguém
 lembra de tirar depois da investigação. Quem defende essa decisão ao longo do
-tempo é o teste do [módulo 12](../../../docs/12-testes.md) que confere o corpo do
-500.
+tempo é o teste do [módulo 12](../../../docs/12-testes.md) que confere o corpo do 500.
 
 Se o suporte precisa correlacionar o relato com a linha de log, o que entra na
 resposta é um **id de requisição**, não a mensagem — é o
@@ -263,14 +266,14 @@ derruba a conexão — o cliente descobre na hora que a resposta é inválida.
 
 ## Onde é fácil errar
 
-| Sintoma                                                                                   | Causa                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Falso amigo:** o tratador está registrado, nada dá erro visível, e mesmo assim sai HTML | O quarto parâmetro foi apagado por "não estar sendo usado". Com três, o Express trata a função como middleware **comum**, e ela nunca recebe erro nenhum      |
-| Erro `AppError` de outro arquivo virando 500                                              | Comparação por `instanceof` com uma classe que não é a mesma instância de classe                                                                             |
-| Erro de terceiro virando resposta com a mensagem dele                                      | Checagem que aceita qualquer erro com `status`, sem exigir a flag `esperado`                                                                                 |
-| `ERR_HTTP_HEADERS_SENT` no log, encobrindo o erro real                                     | Falta a guarda `res.headersSent` no topo                                                                                                                     |
-| JSON malformado respondendo 500                                                            | Falta o ramo do `SyntaxError` do `express.json()`                                                                                                            |
-| O tratador nunca roda                                                                      | Ele foi registrado antes de alguma rota, ou antes do middleware de 404                                                                                       |
+| Sintoma                                                                                   | Causa                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Falso amigo:** o tratador está registrado, nada dá erro visível, e mesmo assim sai HTML | O quarto parâmetro foi apagado por "não estar sendo usado". Com três, o Express trata a função como middleware **comum**, e ela nunca recebe erro nenhum |
+| Erro `AppError` de outro arquivo virando 500                                              | Comparação por `instanceof` com uma classe que não é a mesma instância de classe                                                                         |
+| Erro de terceiro virando resposta com a mensagem dele                                     | Checagem que aceita qualquer erro com `status`, sem exigir a flag `esperado`                                                                             |
+| `ERR_HTTP_HEADERS_SENT` no log, encobrindo o erro real                                    | Falta a guarda `res.headersSent` no topo                                                                                                                 |
+| JSON malformado respondendo 500                                                           | Falta o ramo do `SyntaxError` do `express.json()`                                                                                                        |
+| O tratador nunca roda                                                                     | Ele foi registrado antes de alguma rota, ou antes do middleware de 404                                                                                   |
 
 O primeiro é o mais importante desta pasta porque **não tem sintoma até doer**.
 Rodado de propósito, um tratador declarado com três parâmetros e uma rota que

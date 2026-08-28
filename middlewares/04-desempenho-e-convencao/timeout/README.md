@@ -191,21 +191,21 @@ tentaria escrever cabeçalho numa resposta já enviada e produziria exatamente o
 
 ## Onde é fácil errar
 
-| Sintoma                                                        | Causa                                                                                                                                                    |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **A carga do servidor não caiu depois de instalar o timeout**  | **O falso amigo.** O handler não foi cancelado — ele continua rodando, e o banco continua trabalhando. Só a espera do cliente terminou                    |
-| `ERR_HTTP_HEADERS_SENT` no log depois de todo `503`            | Falta o `if (jaRespondida(res)) return;` no handler lento                                                                                                 |
-| Timeouts disparando em requisições que responderam rápido      | `res.on('finish')` no lugar do `close`, ou nenhum `clearTimeout` — o temporizador sobreviveu à resposta                                                    |
-| O teto por rota é ignorado                                     | Um `timeout` global mais curto já estava armado. Vale o menor                                                                                              |
-| Todo mundo repete o pedido no mesmo instante e a API cai       | `503` sem `Retry-After`                                                                                                                                    |
-| O cliente recebe a página de erro do Nginx, não o seu JSON     | O teto do servidor está acima do teto do proxy na frente. O seu tem que ser o menor para a sua mensagem chegar                                             |
-| Upload grande passou a falhar                                  | O teto conta desde o início da requisição, e um upload legítimo pode passar dele. Rotas de upload precisam do próprio teto, fora do global                 |
+| Sintoma                                                       | Causa                                                                                                                                      |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **A carga do servidor não caiu depois de instalar o timeout** | **O falso amigo.** O handler não foi cancelado — ele continua rodando, e o banco continua trabalhando. Só a espera do cliente terminou     |
+| `ERR_HTTP_HEADERS_SENT` no log depois de todo `503`           | Falta o `if (jaRespondida(res)) return;` no handler lento                                                                                  |
+| Timeouts disparando em requisições que responderam rápido     | `res.on('finish')` no lugar do `close`, ou nenhum `clearTimeout` — o temporizador sobreviveu à resposta                                    |
+| O teto por rota é ignorado                                    | Um `timeout` global mais curto já estava armado. Vale o menor                                                                              |
+| Todo mundo repete o pedido no mesmo instante e a API cai      | `503` sem `Retry-After`                                                                                                                    |
+| O cliente recebe a página de erro do Nginx, não o seu JSON    | O teto do servidor está acima do teto do proxy na frente. O seu tem que ser o menor para a sua mensagem chegar                             |
+| Upload grande passou a falhar                                 | O teto conta desde o início da requisição, e um upload legítimo pode passar dele. Rotas de upload precisam do próprio teto, fora do global |
 
 ## O que ele não faz
 
 - **Não cancela o handler.** É o ponto da pasta. Para cancelar de verdade, a
   operação precisa aceitar cancelamento: `AbortSignal` num `fetch`, `statement
-  timeout` no banco. O middleware não tem como impor isso a código que já rodou.
+timeout` no banco. O middleware não tem como impor isso a código que já rodou.
 - **Não libera recursos.** A conexão de banco, o arquivo aberto, a memória do
   resultado parcial — tudo continua preso até o handler terminar sozinho.
 - **Não protege contra excesso de requisições.** Isso é `limitar`, no grupo 03.

@@ -158,13 +158,13 @@ número.
 
 ## Onde é fácil errar
 
-| Sintoma                                                          | Causa                                                                                                                                                     |
-| ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ERR_HTTP_HEADERS_SENT` e o processo cai                         | **O falso amigo:** carimbar dentro de `res.on('finish')`. Em `finish` a resposta inteira já foi para o socket — `finish` serve para logar, não para carimbar |
-| Resposta sem `X-Tempo-ms`, e nenhum erro visível                 | O mesmo caso acima, com a exceção engolida por um `try` — o cliente recebe 200 e ninguém percebe que a medição sumiu                                        |
-| `X-Tempo-ms` sempre perto de zero, mesmo em rota reconhecidamente lenta | O middleware está registrado depois das rotas: ele mede só o que vem abaixo dele                                                                     |
-| `RangeError: Maximum call stack size exceeded` na primeira resposta | `res.writeHead` guardado sem `.bind(res)`, ou guardado depois da substituição: a nova função chama a si mesma                                            |
-| Duração negativa em produção                                     | `Date.now()` no lugar do relógio monotônico                                                                                                                |
+| Sintoma                                                                 | Causa                                                                                                                                                        |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ERR_HTTP_HEADERS_SENT` e o processo cai                                | **O falso amigo:** carimbar dentro de `res.on('finish')`. Em `finish` a resposta inteira já foi para o socket — `finish` serve para logar, não para carimbar |
+| Resposta sem `X-Tempo-ms`, e nenhum erro visível                        | O mesmo caso acima, com a exceção engolida por um `try` — o cliente recebe 200 e ninguém percebe que a medição sumiu                                         |
+| `X-Tempo-ms` sempre perto de zero, mesmo em rota reconhecidamente lenta | O middleware está registrado depois das rotas: ele mede só o que vem abaixo dele                                                                             |
+| `RangeError: Maximum call stack size exceeded` na primeira resposta     | `res.writeHead` guardado sem `.bind(res)`, ou guardado depois da substituição: a nova função chama a si mesma                                                |
+| Duração negativa em produção                                            | `Date.now()` no lugar do relógio monotônico                                                                                                                  |
 
 O falso amigo merece o detalhe, porque ele é convincente: `res.on('finish', ...)`
 é o lugar certo para saber a duração — é literalmente o instante em que a
