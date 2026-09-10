@@ -748,13 +748,13 @@ curl.exe -s http://localhost:6006/carrinho -H "Authorization: Bearer $ANA"
 
 ## Para estudar
 
-| Módulo                                                                       | O que desta API vem dele                                             |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| [03 — Express básico](../../docs/01-05/03-express-basico.md)                 | app, `express.json()`, rota e status                                 |
-| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                         | `Router`, rota aninhada e parâmetro de rota                          |
-| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                       | `cors`, `morgan`, `router.use` e a ordem da pilha                    |
-| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)       | `AppError` e o tratador central de 4 parâmetros                      |
-| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)               | schemas, `.strict()`, `z.coerce` e formato × regra de negócio        |
-| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas.md) | rotas → serviço → repositório e injeção de dependência               |
-| [10 — ORM com Prisma](../../docs/06-10/10-prisma-orm.md)                     | schema, migrations, adapter do Prisma 7, `include`, `_count` e N+1   |
-| [11 — Autenticação](../../docs/11-15/11-autenticacao.md)                     | argon2 e o sal, JWT, `verify` × `decode`, 401 × 403 e login genérico |
+| Módulo                                                                              | O que desta API vem dele                                             |
+| ----------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [03 — Express básico](../../docs/01-05/03-express-basico.md)                        | app, `express.json()`, rota e status                                 |
+| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                                | `Router`, rota aninhada e parâmetro de rota                          |
+| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                              | `cors`, `morgan`, `router.use` e a ordem da pilha                    |
+| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)              | `AppError` e o tratador central de 4 parâmetros                      |
+| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)                      | schemas, `.strict()`, `z.coerce` e formato × regra de negócio        |
+| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas/README.md) | rotas → serviço → repositório e injeção de dependência               |
+| [10 — ORM com Prisma](../../docs/06-10/10-prisma-orm.md)                            | schema, migrations, adapter do Prisma 7, `include`, `_count` e N+1   |
+| [11 — Autenticação](../../docs/11-15/11-autenticacao.md)                            | argon2 e o sal, JWT, `verify` × `decode`, 401 × 403 e login genérico |

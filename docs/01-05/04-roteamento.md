@@ -101,7 +101,7 @@ lugar, e o prefixo passa a estar repetido em N arquivos — que é exatamente o 
 você estava tentando evitar.
 
 Essa ideia — **a peça declara o que faz, e outro lugar decide onde ela vive** —
-volta no [módulo 08](../06-10/08-arquitetura-em-camadas.md), quando o service receber o
+volta no [módulo 08](../06-10/08-arquitetura-em-camadas/README.md), quando o service receber o
 repositório de fora em vez de criá-lo, e no [módulo 12](../11-15/12-testes.md), quando o
 app inteiro virar uma função para poder ser montado dentro de um teste.
 

@@ -827,16 +827,16 @@ curl.exe -s localhost:6007/estatisticas -H "Authorization: Bearer $TK"
 
 ## Para estudar
 
-| Módulo                                                                       | O que desta API vem dele                                                  |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| [03 — Express básico](../../docs/01-05/03-express-basico.md)                 | app, `express.json()`, rota e status                                      |
-| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                         | `Router`, parâmetro de rota, middleware por prefixo                       |
-| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                       | `cors`, `morgan` e a ordem da pilha                                       |
-| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)       | `AppError` e o tratador central de 4 parâmetros                           |
-| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)               | schemas, `.strict()`, `z.coerce` e formato × regra de negócio             |
-| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas.md) | rotas → serviço → repositório e injeção de dependência                    |
-| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                     | migrations, `?`, índice único, `GROUP BY`, `ON DELETE CASCADE`            |
-| [11 — Autenticação](../../docs/11-15/11-autenticacao.md)                     | argon2, `jwt.verify`, `Authorization: Bearer`, 401 × 403 e mensagem única |
+| Módulo                                                                              | O que desta API vem dele                                                  |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [03 — Express básico](../../docs/01-05/03-express-basico.md)                        | app, `express.json()`, rota e status                                      |
+| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                                | `Router`, parâmetro de rota, middleware por prefixo                       |
+| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                              | `cors`, `morgan` e a ordem da pilha                                       |
+| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)              | `AppError` e o tratador central de 4 parâmetros                           |
+| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)                      | schemas, `.strict()`, `z.coerce` e formato × regra de negócio             |
+| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas/README.md) | rotas → serviço → repositório e injeção de dependência                    |
+| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                            | migrations, `?`, índice único, `GROUP BY`, `ON DELETE CASCADE`            |
+| [11 — Autenticação](../../docs/11-15/11-autenticacao.md)                            | argon2, `jwt.verify`, `Authorization: Bearer`, 401 × 403 e mensagem única |
 
 Vale ler ao lado a mini 6 (`minis-apis/06-compras/`): mesmo teto de módulos, o
 mesmo módulo 11, e a camada de dados escrita com ORM em vez de SQL na mão. O que

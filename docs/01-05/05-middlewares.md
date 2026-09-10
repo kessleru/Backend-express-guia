@@ -206,7 +206,7 @@ o sistema em vez de morar num lugar dele.
 > acontecendo antes dele. Para descobrir, precisa saber que a pilha existe e ir
 > procurar em outro arquivo.
 >
-> É por isso que, a partir do [módulo 08](../06-10/08-arquitetura-em-camadas.md), a
+> É por isso que, a partir do [módulo 08](../06-10/08-arquitetura-em-camadas/README.md), a
 > autorização fica declarada **na própria rota** e não num `app.use` distante —
 > perto o suficiente de quem lê para ser auditável.
 

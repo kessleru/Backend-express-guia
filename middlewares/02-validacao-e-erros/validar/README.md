@@ -287,7 +287,7 @@ como se ele fosse receber qualquer coisa — porque vai:
 - **Não valida regra de negócio.** "Este contrato existe", "este e-mail já tem
   conta" e "você é dono deste chamado" dependem de consultar dados, e a resposta
   delas é 404, 409 ou 403 — não 422. Isso vive no service
-  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)).
+  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas/README.md)).
 - **Não sanitiza HTML.** Uma string válida pode ser `<script>`. Escapar na saída
   é assunto do [módulo 13](../../../docs/11-15/13-seguranca.md).
 - **Não valida o corpo da resposta.** O contrato de saída também pode ter schema;

@@ -142,7 +142,7 @@ Derivar um do outro elimina a categoria inteira de bug, porque não há mais doi
 
 > **Dica:**
 > **O custo:** o tipo passa a depender da biblioteca de validação. É aceitável no
-> contrato HTTP, e é justamente por isso que o [módulo 08](./08-arquitetura-em-camadas.md)
+> contrato HTTP, e é justamente por isso que o [módulo 08](./08-arquitetura-em-camadas/README.md)
 > escreve os tipos de **domínio** à mão: o negócio não deve depender do Zod. O
 > schema descreve o que a API aceita; o domínio, o que o negócio é. Eles se
 > parecem hoje e podem divergir amanhã.

@@ -244,7 +244,7 @@ autenticado. Numa API em que os nomes dos papéis são eles próprios sensíveis
 | 403 para um token que tem o papel certo                             | O `papel` não chegou em `req.usuario` — o `autenticar` foi trocado por uma versão que não valida a carga. O 401 com a mensagem certa é o que evita isso                    |
 | Papel novo criado no banco e ninguém consegue usá-lo                | A lista positiva não foi revisada. É o custo declarado da escolha, e o sintoma correto                                                                                     |
 | `exigirPapel()` sem argumento e todas as rotas negam                | Não acontece: o `throw` da fábrica derruba o servidor na subida, com a linha no stack trace                                                                                |
-| Usuário A lê o recurso do usuário B, os dois com papel `leitor`     | Papel não é dono. Esta checagem precisa buscar o recurso e mora no service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md))                                 |
+| Usuário A lê o recurso do usuário B, os dois com papel `leitor`     | Papel não é dono. Esta checagem precisa buscar o recurso e mora no service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas/README.md))                          |
 | Alguém rebaixado de admin continua apagando por mais alguns minutos | O papel vem congelado no token, e ele vale até expirar. É a contrapartida do JWT, descrita no [módulo 11](../../../docs/11-15/11-autenticacao.md#permissão-por-papel-rbac) |
 
 ## O que ele não faz
@@ -255,7 +255,7 @@ autenticado. Numa API em que os nomes dos papéis são eles próprios sensíveis
   não cabe aqui: essa regra precisa **buscar o recurso** para comparar o dono com
   quem pediu, e um middleware que roda antes do handler não tem o recurso em mãos.
   Ela mora no service
-  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)), e o
+  ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas/README.md)), e o
   [módulo 13](../../../docs/11-15/13-seguranca.md#broken-access-control--o-erro-nº-1-na-prática)
   mostra o caso completo, inclusive por que a resposta ali costuma ser 404 e não
   403 — um 403 confirmaria que o recurso existe.

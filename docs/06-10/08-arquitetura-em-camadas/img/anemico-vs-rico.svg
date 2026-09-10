@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" width="900" height="440" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Modelo anêmico comparado com modelo rico: onde a regra de publicar mora</title>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="seta-vermelha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect width="900" height="440" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+
+  <text x="225" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Modelo anêmico</text>
+  <text x="225" y="58" text-anchor="middle" font-size="13" fill="#64748b">exemplo principal · 08-camadas/</text>
+
+  <rect x="40" y="80" width="370" height="120" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="56" y="104" font-size="14" font-weight="700" fill="#1e3a8a">service · publicar(id)</text>
+  <text x="56" y="130" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">if (curso.publicado) throw …</text>
+  <text x="56" y="152" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">if (curso.horas &lt; 2) throw …</text>
+  <text x="56" y="174" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">repo.atualizar(id, {publicado:true})</text>
+
+  <rect x="40" y="240" width="370" height="70" rx="10" fill="#bbf7d0" stroke="#16a34a"/>
+  <text x="56" y="264" font-size="14" font-weight="700" fill="#14532d">Curso · só dados</text>
+  <text x="56" y="290" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">{ id, titulo, horas, publicado }</text>
+
+  <line x1="225" y1="200" x2="225" y2="236" stroke="#334155" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="236" y="223" font-size="12" fill="#475569">lê e manda gravar</text>
+
+  <rect x="40" y="336" width="370" height="76" rx="10" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="56" y="360" font-size="13" font-weight="700" fill="#7f1d1d">A regra fica FORA do dado que ela protege.</text>
+  <text x="56" y="381" font-size="12" fill="#7f1d1d">Nada impede outro arquivo de chamar</text>
+  <text x="56" y="399" font-size="12" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#7f1d1d">repo.atualizar(id, {publicado:true})</text>
+
+  <line x1="450" y1="30" x2="450" y2="415" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <text x="675" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Modelo rico</text>
+  <text x="675" y="58" text-anchor="middle" font-size="13" fill="#64748b">DDD tático · 04-ddd-tatico/</text>
+
+  <rect x="490" y="80" width="370" height="120" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="506" y="104" font-size="14" font-weight="700" fill="#1e3a8a">serviço de aplicação · publicar(id)</text>
+  <text x="506" y="130" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">const curso = await carregar(id)</text>
+  <text x="506" y="152" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">curso.publicar()</text>
+  <text x="506" y="174" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">await repo.salvar(curso)</text>
+
+  <rect x="490" y="240" width="370" height="70" rx="10" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+  <text x="506" y="264" font-size="14" font-weight="700" fill="#14532d">Curso · dados + comportamento</text>
+  <text x="506" y="290" font-size="13" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" fill="#0f172a">#publicado · publicar() confere a regra</text>
+
+  <line x1="675" y1="200" x2="675" y2="236" stroke="#334155" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="686" y="223" font-size="12" fill="#475569">pede: curso.publicar()</text>
+
+  <rect x="490" y="336" width="370" height="76" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="506" y="360" font-size="13" font-weight="700" fill="#14532d">A regra fica DENTRO do dado.</text>
+  <text x="506" y="381" font-size="12" fill="#14532d">#publicado é privado de verdade. O único jeito</text>
+  <text x="506" y="399" font-size="12" fill="#14532d">de mudá-lo é chamar publicar(), que confere antes.</text>
+</svg>

@@ -3,8 +3,14 @@
 > **Fonte única do progresso.** Nenhum outro arquivo repete estas tabelas — se
 > uma delas discordar da árvore, a árvore ganha e a tabela se corrige aqui.
 >
-> Última sessão registrada: **2026-08-27**. Histórico narrativo em
+> Última sessão registrada: **2026-09-10**. Histórico narrativo em
 > [`historico/`](historico/).
+
+> **Módulo 08 virou pasta em 2026-09-10:**
+> `docs/06-10/08-arquitetura-em-camadas/` (README + 10 partes + `img/` com 7
+> SVGs), e quatro exemplos de comparação em `src/exemplos/06-10/08-arquiteturas/`
+> (portas 5081–5084). O `08-camadas/` e o exercício 08 não mudaram. Link para o
+> módulo agora é `.../08-arquitetura-em-camadas/README.md`.
 
 ## ▶ O que fazer na próxima sessão
 
@@ -71,16 +77,26 @@ Cada fase é entregável sozinha; dá para parar entre elas.
 | `minis-apis/`  | 7 mini APIs fora do domínio da biblioteca          | ✅ levas 1 e 2 |
 | `assets/`      | imagens do README, geradas por `assets/gerar.mjs`  | ✅             |
 
-## Números da última verificação (2026-08-27)
+## Números da última verificação (2026-09-10)
 
 ```
-npm run typecheck        → passa
+npm run typecheck        → passa (depois de npm run db:generate)
 npm run typecheck:ex     → passa
-npm run typecheck:minis  → passa
+npm run typecheck:minis  → 3 erros TS7006 em minis-apis/06-compras: falta o
+                           `prisma generate` da mini (ver o README dela) — ambiente
 npm run typecheck:mw     → passa
-npm run format:check     → limpo
+npm run format:check     → 28 avisos: 27 em src/playground/ (do usuário, não se
+                           toca) e src/exemplos/06-10/07-validacao/servidor.ts,
+                           que veio dos commits de validação e não foi mexido
 npm test                 → 245 testes, 17 arquivos, verde
 ```
+
+> **Atenção:** o verificador de links da sessão de 2026-09-10 achou **15 âncoras
+> quebradas em docs antigos** (03, 04, 06, 07, 09, 10, 11, 12, 13 e um README de
+> `middlewares/`). Causa: `gerar-sumarios.mjs` troca `\s+` por um hífen só, e o
+> GitHub troca cada espaço por um — título com `—` vira `--` no GitHub e `-` no
+> sumário. Corrigir o script (`/\s/g`) e rodar de novo. Não foi feito: está fora
+> do escopo daquela sessão.
 
 `npm run typecheck:play` falha com **TS18003** ("No inputs were found"), e está
 certo: `src/playground/` não tem nenhum `.ts` ainda. O erro some no primeiro

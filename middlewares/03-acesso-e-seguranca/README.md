@@ -87,7 +87,7 @@ curl.exe -s -i http://localhost:6103/publico
   [módulo 11](../../docs/11-15/11-autenticacao.md).
 - **Autorização por dono do recurso.** "Só o autor edita o próprio post" precisa
   buscar o recurso para comparar, e por isso mora no service
-  ([módulo 08](../../docs/06-10/08-arquitetura-em-camadas.md)), não num middleware.
+  ([módulo 08](../../docs/06-10/08-arquitetura-em-camadas/README.md)), não num middleware.
 - **Contador de rate limit compartilhado.** As duas versões contam na memória de
   um processo; com dois, o teto real dobra. Redis, no módulo 15.
 - **CORS.** Helmet não faz CORS, e os dois são confundidos com frequência —

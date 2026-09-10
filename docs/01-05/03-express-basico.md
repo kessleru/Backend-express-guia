@@ -315,7 +315,7 @@ idempotência para não criar o pedido duas vezes.
 > **Atenção:** O erro clássico do PATCH é aplicar um objeto com `undefined` dentro:
 > `{ ...atual, ...enviado }` **apaga** o campo salvo quando `enviado.titulo` é
 > `undefined`. É o mesmo bug que reaparece no
-> [módulo 08](../06-10/08-arquitetura-em-camadas.md) com `exactOptionalPropertyTypes` e
+> [módulo 08](../06-10/08-arquitetura-em-camadas/README.md) com `exactOptionalPropertyTypes` e
 > no [módulo 07](../06-10/07-validacao-zod.md) com `.partial()`. Copiar campo a campo,
 > checando `!== undefined`, é o que resolve.
 

@@ -64,6 +64,13 @@ depuração e virou conteúdo de módulo — não repita a descoberta.
 | `process.loadEnvFile()` (nativo) no `vitest.setup.ts` é o que faz `npm test` rodar sem `--env-file` e sem `dotenv`                                                                                                                                  | 12     |
 | `tsconfig.exercicios.json` precisou de `rootDir: "."` para a solução do 10 importar o Prisma Client gerado em `src/`                                                                                                                                | 10     |
 
+## JavaScript e TypeScript (módulo 08)
+
+| Achado                                                                                                                                                                                                                                   | Onde |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `res.json(entidade)` numa classe com campos `#privados` e getters responde só os campos públicos próprios (`{"id":1}`), sem erro de compilação — `res.json` aceita `any`. A entidade rica exige mapear para objeto simples na borda HTTP | 08.8 |
+| Com `erasableSyntaxOnly`, classe de domínio não pode usar _parameter properties_ (`constructor(private x)`); `#campo`, `private` e `readonly` declarados no corpo funcionam                                                              | 08.8 |
+
 ---
 
 ## Estado e injeção de dependência (exercícios 12 e 13)

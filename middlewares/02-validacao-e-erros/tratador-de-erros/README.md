@@ -206,7 +206,7 @@ if (!chamado) throw naoEncontrado('Chamado', id);
 ```
 
 Quem lança não precisa conhecer `res` — é o que permite reusar a mesma função
-num service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas.md)) ou num
+num service ([módulo 08](../../../docs/06-10/08-arquitetura-em-camadas/README.md)) ou num
 worker, onde requisição nenhuma existe.
 
 ## As decisões e o porquê

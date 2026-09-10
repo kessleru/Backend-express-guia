@@ -225,7 +225,7 @@ r.changes; // linhas afetadas
 
 É **síncrono**, e para SQLite isso é uma vantagem: sem round-trip de rede, o
 overhead de Promise custaria mais que a própria query. Mesmo assim a **interface**
-do repositório é `Promise` (ver [módulo 08](./08-arquitetura-em-camadas.md)),
+do repositório é `Promise` (ver [módulo 08](./08-arquitetura-em-camadas/README.md)),
 porque Postgres é assíncrono.
 
 ### JOIN

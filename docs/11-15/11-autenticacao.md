@@ -352,7 +352,7 @@ imediata. Decisão de produto.
 > **Importante:**
 > Além de papel, existe autorização **por dono do recurso** ("só o autor edita
 > seu post"), que precisa buscar o recurso — e portanto mora no service
-> ([módulo 08](../06-10/08-arquitetura-em-camadas.md)), não num middleware.
+> ([módulo 08](../06-10/08-arquitetura-em-camadas/README.md)), não num middleware.
 
 ### OAuth2 em visão geral
 

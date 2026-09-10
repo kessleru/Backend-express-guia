@@ -604,12 +604,12 @@ empate se desfaz e o percentual passa a somar 100,0:
 
 ## Para estudar
 
-| Módulo                                                                       | O que desta API vem de lá                                           |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [03 — Express básico](../../docs/01-05/03-express-basico.md)                 | `app`, `express.json()`, `listen`                                   |
-| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                         | `Router`, parâmetro de rota, sub-recurso, por que `?estado=`        |
-| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                       | `cors`, `morgan` e o `identificarEleitor` com escopo de rota        |
-| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)       | `AppError`, tratador central, 422 × 404 × 409                       |
-| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas.md) | rotas → serviço → repositório, e o contrato no meio                 |
-| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                     | migration, chave estrangeira, índice único, `LEFT JOIN`, `GROUP BY` |
-| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)               | o que `validacao.ts` faz à mão — leia depois, para comparar         |
+| Módulo                                                                              | O que desta API vem de lá                                           |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [03 — Express básico](../../docs/01-05/03-express-basico.md)                        | `app`, `express.json()`, `listen`                                   |
+| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                                | `Router`, parâmetro de rota, sub-recurso, por que `?estado=`        |
+| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                              | `cors`, `morgan` e o `identificarEleitor` com escopo de rota        |
+| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)              | `AppError`, tratador central, 422 × 404 × 409                       |
+| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas/README.md) | rotas → serviço → repositório, e o contrato no meio                 |
+| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                            | migration, chave estrangeira, índice único, `LEFT JOIN`, `GROUP BY` |
+| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)                      | o que `validacao.ts` faz à mão — leia depois, para comparar         |

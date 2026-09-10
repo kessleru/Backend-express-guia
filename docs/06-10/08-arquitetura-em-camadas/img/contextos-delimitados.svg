@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Contextos delimitados: a palavra Curso com três modelos diferentes numa escola</title>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="900" height="400" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="450" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Uma escola, três contextos, três "Curso"</text>
+
+  <rect x="30" y="64" width="260" height="230" rx="18" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="160" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#14532d">Catálogo</text>
+  <text x="160" y="112" text-anchor="middle" font-size="12" fill="#166534">quem monta os cursos</text>
+  <rect x="60" y="130" width="200" height="140" rx="10" fill="#ffffff" stroke="#16a34a"/>
+  <text x="160" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Curso</text>
+  <text x="80" y="184" font-size="13" fill="#334155">título</text>
+  <text x="80" y="206" font-size="13" fill="#334155">carga horária</text>
+  <text x="80" y="228" font-size="13" fill="#334155">publicado?</text>
+  <text x="80" y="250" font-size="12" fill="#64748b" font-style="italic">← o módulo 08 vive aqui</text>
+
+  <rect x="320" y="64" width="260" height="230" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="450" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">Matrícula</text>
+  <text x="450" y="112" text-anchor="middle" font-size="12" fill="#1e40af">quem coloca alunos nas turmas</text>
+  <rect x="350" y="130" width="200" height="140" rx="10" fill="#ffffff" stroke="#2563eb"/>
+  <text x="450" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Curso</text>
+  <text x="370" y="184" font-size="13" fill="#334155">turma e horário</text>
+  <text x="370" y="206" font-size="13" fill="#334155">vagas</text>
+  <text x="370" y="228" font-size="13" fill="#334155">alunos inscritos</text>
+
+  <rect x="610" y="64" width="260" height="230" rx="18" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+  <text x="740" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#78350f">Financeiro</text>
+  <text x="740" y="112" text-anchor="middle" font-size="12" fill="#92400e">quem cobra</text>
+  <rect x="640" y="130" width="200" height="140" rx="10" fill="#ffffff" stroke="#d97706"/>
+  <text x="740" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Curso</text>
+  <text x="660" y="184" font-size="13" fill="#334155">preço</text>
+  <text x="660" y="206" font-size="13" fill="#334155">descontos</text>
+  <text x="660" y="228" font-size="13" fill="#334155">nota fiscal</text>
+
+  <line x1="290" y1="180" x2="318" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#seta)"/>
+  <line x1="580" y1="180" x2="608" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="450" y="318" text-anchor="middle" font-size="12" fill="#64748b">as setas são traduções: só o id do curso atravessa a fronteira</text>
+
+  <text x="450" y="352" text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">A mesma palavra, três modelos. Um Curso gigante com todos os campos</text>
+  <text x="450" y="374" text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">agrada a ninguém e obriga os três times a combinar cada mudança.</text>
+</svg>

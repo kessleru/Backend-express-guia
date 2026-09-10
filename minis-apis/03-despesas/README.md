@@ -612,12 +612,12 @@ curl.exe -s "http://localhost:6003/relatorios/mensal?mes=agosto"
 
 ## Para estudar
 
-| Módulo                                                                       | O que desta API vem dele                                            |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [03 — Express básico](../../docs/01-05/03-express-basico.md)                 | app, `express.json()`, rota e status                                |
-| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                         | `Router`, parâmetro de rota, query string                           |
-| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                       | `cors`, `morgan` e a ordem da pilha                                 |
-| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)       | `AppError` e o tratador central de 4 parâmetros                     |
-| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)               | schemas, `.strict()`, `z.coerce` e formato × regra de negócio       |
-| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas.md) | rotas → serviço → repositório e injeção de dependência              |
-| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                     | migrations, `?`, `JOIN`, `GROUP BY`, índices e `EXPLAIN QUERY PLAN` |
+| Módulo                                                                              | O que desta API vem dele                                            |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [03 — Express básico](../../docs/01-05/03-express-basico.md)                        | app, `express.json()`, rota e status                                |
+| [04 — Roteamento](../../docs/01-05/04-roteamento.md)                                | `Router`, parâmetro de rota, query string                           |
+| [05 — Middlewares](../../docs/01-05/05-middlewares.md)                              | `cors`, `morgan` e a ordem da pilha                                 |
+| [06 — Tratamento de erros](../../docs/06-10/06-tratamento-de-erros.md)              | `AppError` e o tratador central de 4 parâmetros                     |
+| [07 — Validação com Zod](../../docs/06-10/07-validacao-zod.md)                      | schemas, `.strict()`, `z.coerce` e formato × regra de negócio       |
+| [08 — Arquitetura em camadas](../../docs/06-10/08-arquitetura-em-camadas/README.md) | rotas → serviço → repositório e injeção de dependência              |
+| [09 — SQLite e SQL](../../docs/06-10/09-sqlite-e-sql.md)                            | migrations, `?`, `JOIN`, `GROUP BY`, índices e `EXPLAIN QUERY PLAN` |

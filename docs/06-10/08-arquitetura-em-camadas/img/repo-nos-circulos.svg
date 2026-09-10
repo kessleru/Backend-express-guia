@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>As pastas do exemplo principal do módulo 08 posicionadas nos círculos da Clean Architecture</title>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+    <marker id="seta-vermelha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect width="900" height="640" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+
+  <text x="450" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">Onde cada pasta de src/exemplos/06-10/08-camadas/ cairia</text>
+
+  <circle cx="300" cy="330" r="250" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <circle cx="300" cy="330" r="185" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <circle cx="300" cy="330" r="120" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="300" cy="330" r="60" fill="#bbf7d0" stroke="#16a34a" stroke-width="2.5"/>
+
+  <text x="300" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#334155">Express · Zod · Prisma (10)</text>
+  <text x="300" y="172" text-anchor="middle" font-size="14" font-weight="700" fill="#78350f">rotas/ · controllers/ · repositorios/</text>
+  <text x="300" y="238" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">servicos/cursos.ts</text>
+  <text x="300" y="325" text-anchor="middle" font-size="14" font-weight="800" fill="#14532d">dominio/</text>
+  <text x="300" y="344" text-anchor="middle" font-size="11" fill="#14532d">tipos + interface</text>
+
+  <!-- AppError fora dos círculos: a seta sai de servicos e atravessa os anéis para FORA -->
+  <rect x="20" y="56" width="140" height="52" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="90" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#7f1d1d">AppError</text>
+  <text x="90" y="97" text-anchor="middle" font-size="11" fill="#7f1d1d">sabe HTTP: status 409</text>
+  <line x1="236" y1="286" x2="112" y2="114" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#seta-vermelha)"/>
+  <circle cx="236" cy="286" r="4" fill="#dc2626"/>
+
+  <line x1="300" y1="570" x2="300" y2="396" stroke="#0f172a" stroke-width="3" marker-end="url(#seta)"/>
+
+  <!-- Legenda -->
+  <rect x="585" y="70" width="295" height="104" rx="10" fill="#bbf7d0" stroke="#16a34a"/>
+  <text x="600" y="94" font-size="14" font-weight="700" fill="#14532d">dominio/curso.ts ✓</text>
+  <text x="600" y="116" font-size="12" fill="#14532d">Não importa nada. Tem os tipos e a</text>
+  <text x="600" y="133" font-size="12" fill="#14532d">interface do repositório. Mas não tem</text>
+  <text x="600" y="150" font-size="12" fill="#14532d">regra: os tipos são só dados.</text>
+  <text x="600" y="167" font-size="12" fill="#14532d" font-style="italic">(modelo anêmico)</text>
+
+  <rect x="585" y="188" width="295" height="88" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="600" y="212" font-size="14" font-weight="700" fill="#1e3a8a">servicos/cursos.ts ✓</text>
+  <text x="600" y="234" font-size="12" fill="#1e3a8a">Todas as regras moram aqui. Não</text>
+  <text x="600" y="251" font-size="12" fill="#1e3a8a">importa express nem o repositório</text>
+  <text x="600" y="268" font-size="12" fill="#1e3a8a">concreto: só o domínio.</text>
+
+  <rect x="585" y="290" width="295" height="88" rx="10" fill="#fef3c7" stroke="#d97706"/>
+  <text x="600" y="314" font-size="14" font-weight="700" fill="#78350f">rotas/ controllers/ repositorios/ ✓</text>
+  <text x="600" y="336" font-size="12" fill="#78350f">Traduzem HTTP e guardam dados.</text>
+  <text x="600" y="353" font-size="12" fill="#78350f">O repositório implementa a interface</text>
+  <text x="600" y="370" font-size="12" fill="#78350f">que mora no domínio.</text>
+
+  <rect x="585" y="392" width="295" height="104" rx="10" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="600" y="416" font-size="14" font-weight="700" fill="#7f1d1d">A seta que aponta para fora ✗</text>
+  <text x="600" y="438" font-size="12" fill="#7f1d1d">O service lança conflito(), que é um</text>
+  <text x="600" y="455" font-size="12" fill="#7f1d1d">AppError com status HTTP dentro.</text>
+  <text x="600" y="472" font-size="12" fill="#7f1d1d">É um atalho consciente: economiza a</text>
+  <text x="600" y="489" font-size="12" fill="#7f1d1d">tradução de erro dos exemplos 02 a 04.</text>
+
+  <text x="450" y="612" text-anchor="middle" font-size="13" fill="#64748b">Sem círculo 4 escrito à mão: Express e Prisma já são o anel de fora.</text>
+</svg>

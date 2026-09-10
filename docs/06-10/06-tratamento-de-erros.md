@@ -128,7 +128,7 @@ function acharCurso(id: string): Curso {
 ```
 
 A função não precisa saber que existe HTTP. Isso é o que permite reusá-la num
-service ([módulo 08](./08-arquitetura-em-camadas.md)) e num worker de fila
+service ([módulo 08](./08-arquitetura-em-camadas/README.md)) e num worker de fila
 ([módulo 17](../16-20/17-jobs-e-filas.md), ainda esqueleto), onde não há requisição nenhuma.
 
 Repare no que acabou de acontecer: a função que **descobriu** o problema não é a

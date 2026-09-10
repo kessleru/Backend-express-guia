@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="900" height="620" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Os quatro círculos da Clean Architecture com as pastas do exemplo 03-clean</title>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="900" height="620" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+
+  <circle cx="300" cy="300" r="250" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <circle cx="300" cy="300" r="185" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <circle cx="300" cy="300" r="120" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="300" cy="300" r="60" fill="#bbf7d0" stroke="#16a34a" stroke-width="2.5"/>
+
+  <text x="300" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">4 · Frameworks e drivers</text>
+  <text x="300" y="145" text-anchor="middle" font-size="15" font-weight="700" fill="#78350f">3 · Adaptadores</text>
+  <text x="300" y="210" text-anchor="middle" font-size="15" font-weight="700" fill="#1e3a8a">2 · Casos de uso</text>
+  <text x="300" y="296" text-anchor="middle" font-size="15" font-weight="800" fill="#14532d">1 · Entidades</text>
+
+  <line x1="300" y1="540" x2="300" y2="366" stroke="#0f172a" stroke-width="3" marker-end="url(#seta)"/>
+  <text x="312" y="505" font-size="13" font-weight="600" fill="#0f172a">import só</text>
+  <text x="312" y="521" font-size="13" font-weight="600" fill="#0f172a">aponta para dentro</text>
+
+  <!-- Legenda -->
+  <rect x="585" y="60" width="295" height="92" rx="10" fill="#bbf7d0" stroke="#16a34a"/>
+  <text x="600" y="84" font-size="14" font-weight="700" fill="#14532d">1 · entidades/curso.ts</text>
+  <text x="600" y="106" font-size="12" fill="#14532d">Regra que valeria sem software:</text>
+  <text x="600" y="123" font-size="12" fill="#14532d">"menos de 2h não publica".</text>
+  <text x="600" y="140" font-size="12" fill="#14532d">Não importa nada.</text>
+
+  <rect x="585" y="168" width="295" height="92" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="600" y="192" font-size="14" font-weight="700" fill="#1e3a8a">2 · casos-de-uso/*.ts</text>
+  <text x="600" y="214" font-size="12" fill="#1e3a8a">Um arquivo por operação (publicar,</text>
+  <text x="600" y="231" font-size="12" fill="#1e3a8a">criar…) e o contrato do repositório.</text>
+  <text x="600" y="248" font-size="12" fill="#1e3a8a">Importa só entidades.</text>
+
+  <rect x="585" y="276" width="295" height="92" rx="10" fill="#fef3c7" stroke="#d97706"/>
+  <text x="600" y="300" font-size="14" font-weight="700" fill="#78350f">3 · adaptadores/</text>
+  <text x="600" y="322" font-size="12" fill="#78350f">Controller, apresentador, schemas,</text>
+  <text x="600" y="339" font-size="12" fill="#78350f">repositório em memória. Traduzem</text>
+  <text x="600" y="356" font-size="12" fill="#78350f">entre a web e os casos de uso.</text>
+
+  <rect x="585" y="384" width="295" height="92" rx="10" fill="#f1f5f9" stroke="#64748b"/>
+  <text x="600" y="408" font-size="14" font-weight="700" fill="#334155">4 · frameworks/web.ts</text>
+  <text x="600" y="430" font-size="12" fill="#334155">O Express. Banco e bibliotecas</text>
+  <text x="600" y="447" font-size="12" fill="#334155">também moram aqui: são os</text>
+  <text x="600" y="464" font-size="12" fill="#334155">"detalhes" que podem ser trocados.</text>
+
+  <text x="450" y="590" text-anchor="middle" font-size="13" fill="#64748b">O número de círculos não é regra. A regra é a direção da seta.</text>
+</svg>
